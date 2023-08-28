@@ -1,9 +1,13 @@
 import './App.scss';
+import Header from './components/Header/Header';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      Hi
+      <BrowserRouter>
+        <Header/>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,0 +1,53 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.header{
+    padding-block: 1rem;
+    display: flex;
+    justify-content: space-between;
+    //align-items: baseline;
+
+    @include tablet{
+        @include tablet-margin;
+    }
+
+    @include desktop{
+        @include desktop-margin;
+
+    }
+
+    &__nav{
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+
+        &-text{
+            font-size: 1rem;
+            font-family: "Titillium Web";
+            padding-inline: 1rem;
+            //padding-bottom: 0.05rem;
+
+            @include desktop{
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+.logo-container{
+
+    @include tablet {
+        max-width: 10rem;
+
+    }
+
+    &__img{
+
+        @include tablet {
+            object-fit: cover;
+            max-width: 10rem;
+        }
+    }
+
+}
