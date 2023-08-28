@@ -1,0 +1,30 @@
+//@use "./styles/partials/variables" as *;
+//@use "./styles/partials/typography" as *;
+//@use "./styles/partials/mixins" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+
+  a {
+    text-decoration: none;
+  }
+}
