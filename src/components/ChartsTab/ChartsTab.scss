@@ -1,0 +1,13 @@
+
+.tabsContainer{
+    display: flex;
+    gap:1rem;
+
+    &__tab{
+        background-color: grey;
+
+        &--active{
+            background-color: aquamarine;
+        }
+    }
+}
