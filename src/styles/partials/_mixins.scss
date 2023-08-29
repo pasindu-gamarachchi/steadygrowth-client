@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+//Mixins to set tablet and desktop width threshold
+@mixin tablet {
+    @media (min-width: $tablet-width) {
+      @content;
+      //margin-inline: $tablet-margin;
+
+    }
+  }
+  
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+    //margin-inline: $desktop-margin;
+
+  }
+}
+
+
+@mixin tablet-margin{
+    margin-inline: $tablet-margin;
+}
+
+@mixin desktop-margin{
+    margin-inline: $desktop-margin;
+}
