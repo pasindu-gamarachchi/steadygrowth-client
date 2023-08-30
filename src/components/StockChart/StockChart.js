@@ -3,10 +3,11 @@ import {Line} from 'react-chartjs-2'
 import Chart from 'chart.js/auto';
 import './StockChart.scss'
 
-const StockChart = ({label, chartData}) => {
+const StockChart = ({label, chartData, symb}) => {
 
 
     console.log(label);
+    //console.log(chartData); 
     const [userData, setUserData] = useState({
         labels: chartData.map((elem)=>{
             return elem.Date
@@ -23,7 +24,8 @@ const StockChart = ({label, chartData}) => {
     return (
         <div>
             <div className='chartContainer'>
-                <Line data={userData} />
+                <h3>{symb}</h3>
+                <Line redraw={true} data={userData}/>
             </div>
         </div>
     );
