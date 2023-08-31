@@ -16,8 +16,8 @@ const Header = () => {
                 <Link to="/">
                     <h2 className='header__nav-text'>Charts</h2>
                 </Link>
-                <Link to="/">
-                    <h2 className='header__nav-text'>Financials</h2>
+                <Link to="/portfolio">
+                    <h2 className='header__nav-text'>Portfolio</h2>
                 </Link>
                 <Link to="/">
                     <h2 className='header__nav-text'>Ratios</h2>
