@@ -17,23 +17,26 @@ const ChartsTab = ({symb}) => {
         setToggleState(per);
     }
 
+    console.log(`Symbol : ${symb}`); 
+
     useEffect(() => {
         axios
             .get(`http://localhost:5050/api/chartdata/${symb}?from=2019-01-01&to=2019-12-31`)
             .then((resp) =>{
+                // console.log("got new data");
                 const newChartData = resp.data;
                 setoneYearData(newChartData);
                 return axios
                     .get(`http://localhost:5050/api/chartdata/${symb}?from=2019-10-01&to=2019-12-31`);
             })
             .then((resp)=>{
-                console.log(resp.data);
+                //console.log(resp.data);
                 const newChartData2 = resp.data;
                 setthreeMonthData(newChartData2);
                 return axios
                     .get(`http://localhost:5050/api/chartdata/${symb}?from=2017-01-01&to=2019-12-31`);
             }).then((resp)=>{
-                console.log(resp.data);
+                //console.log(resp.data);
                 setthreeYearData(resp.data);
                 setisLoading(false);
             })
@@ -59,9 +62,9 @@ const ChartsTab = ({symb}) => {
                 <div onClick={() =>toggleTab("3y")} className={toggleState==='3y' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>3 Year</div>
             </div>
             <div>
-                {toggleState==='3mo' && <StockChart label={"3mo"} chartData={threeMonthData}/>}
-                {toggleState==='1y' && <StockChart label={"1y"} chartData={oneYearData}/>}
-                {toggleState==='3y' && <StockChart label={"3y"} chartData={threeYearData}/>}
+                {toggleState==='3mo' && <StockChart label={"3mo"} chartData={threeMonthData} symb={symb}/>}
+                {toggleState==='1y' && <StockChart label={"1y"} chartData={oneYearData} symb={symb}/>}
+                {toggleState==='3y' && <StockChart label={"3y"} chartData={threeYearData} symb={symb}/>}
             </div>
         </div>
     );

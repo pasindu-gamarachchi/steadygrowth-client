@@ -21,13 +21,13 @@ const SummaryTable = ({symb}) => {
                 .get(`http://localhost:5050/api/baseStats/${symb}?from=2019-10-01&to=2019-12-31`);
         })
         .then((resp)=>{
-            console.log(resp.data);
+            //console.log(resp.data);
             const newChartData2 = resp.data;
             setthreeMonthData(newChartData2);
             return axios
                 .get(`http://localhost:5050/api/baseStats/${symb}?from=2017-01-01&to=2019-12-31`);
         }).then((resp)=>{
-            console.log(resp.data);
+            //console.log(resp.data);
             setthreeYearData(resp.data);
             setisLoading(false);
         })
@@ -35,7 +35,7 @@ const SummaryTable = ({symb}) => {
             console.error(err);
         }
         )
-  }, []
+  }, [symb]
   )
     
   const assembleData = (threeMonth, oneYear, threeYear, stat, isNested=false)=>{
@@ -46,7 +46,7 @@ const SummaryTable = ({symb}) => {
           "3y":  isNested? threeYear[stat]["close"]: threeYear[stat] 
 
       }
-      console.log(`StatObj --> ${statObj}`);
+      //console.log(`StatObj --> ${statObj}`);
       return statObj;
 
   }

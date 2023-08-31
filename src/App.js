@@ -13,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Header/>
         <Routes>
+          <Route path="/" element={<ChartsPage />} />
           <Route path="/:symb" element={<ChartsPage />} />
         </Routes>
 
