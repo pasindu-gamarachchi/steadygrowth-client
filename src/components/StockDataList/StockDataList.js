@@ -17,6 +17,11 @@ const StockDataList = () => {
         //  }
     }
 
+    const handleAddtoWatchlist = (e) =>{
+        console.log(`Event --> ${e}`);
+        // Post to user_prefs
+    }
+
     return (
         <div>
             <label for="ice-cream-choice">Choose a Stock:</label>
@@ -34,6 +39,9 @@ const StockDataList = () => {
                 <Link to={`/${chosenStock}`}>
                     Display
                 </Link>
+            </button>
+            <button onClick={handleAddtoWatchlist}>
+                    Add to Watchlist
             </button>
         </div>
     );
