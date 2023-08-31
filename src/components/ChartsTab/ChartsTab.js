@@ -23,20 +23,17 @@ const ChartsTab = ({symb}) => {
         axios
             .get(`http://localhost:5050/api/chartdata/${symb}?from=2019-01-01&to=2019-12-31`)
             .then((resp) =>{
-                // console.log("got new data");
                 const newChartData = resp.data;
                 setoneYearData(newChartData);
                 return axios
                     .get(`http://localhost:5050/api/chartdata/${symb}?from=2019-10-01&to=2019-12-31`);
             })
             .then((resp)=>{
-                //console.log(resp.data);
                 const newChartData2 = resp.data;
                 setthreeMonthData(newChartData2);
                 return axios
                     .get(`http://localhost:5050/api/chartdata/${symb}?from=2017-01-01&to=2019-12-31`);
             }).then((resp)=>{
-                //console.log(resp.data);
                 setthreeYearData(resp.data);
                 setisLoading(false);
             })
@@ -44,7 +41,7 @@ const ChartsTab = ({symb}) => {
                 console.error(err);
             }
             )
-    }, []
+    }, [symb]
     )
 
     if (isLoading){
