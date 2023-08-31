@@ -1,9 +1,7 @@
 import './App.scss';
 import Header from './components/Header/Header';
-import StockChart from './components/StockChart/StockChart';
-import ChartsTab from './components/ChartsTab/ChartsTab';
-import SummaryTable from './components/SummaryTable/SummaryTable';
-import ChartsPage from './pages/ChartsPage';
+import ChartsPage from './pages/ChartsPage/ChartsPage';
+import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 
@@ -15,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ChartsPage />} />
           <Route path="/:symb" element={<ChartsPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
         </Routes>
 
       </BrowserRouter>

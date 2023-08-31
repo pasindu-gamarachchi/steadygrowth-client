@@ -1,9 +1,9 @@
-import ChartsTab from "../components/ChartsTab/ChartsTab";
-import SummaryTable from "../components/SummaryTable/SummaryTable";
+import ChartsTab from "../../components/ChartsTab/ChartsTab";
+import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import { useParams } from "react-router-dom";
 
 import "./ChartsPage.scss";
-import StockDataList from "../components/StockDataList/StockDataList";
+import StockDataList from "../../components/StockDataList/StockDataList";
 import { useState } from "react";
 
 const ChartsPage = () => {
