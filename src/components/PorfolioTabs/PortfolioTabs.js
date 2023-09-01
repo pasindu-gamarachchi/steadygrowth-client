@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AddPortfolio from '../AddPortfolio/AddPortfolio';
 import EditPortfolio from "../EditPortfolio/EditPortfolio";
 
-const PortfolioTabs = () => {
+const PortfolioTabs = ({fetchData}) => {
 
     const [portfolioAction, setportfolioAction] = useState('add');
 
@@ -17,8 +17,8 @@ const PortfolioTabs = () => {
                 <div onClick={() =>toggleTab("edit")} className={portfolioAction==='1y' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>EDIT</div>
             </div>
             <div>
-                {portfolioAction==='add' && <AddPortfolio/>}
-                {portfolioAction==='edit' && <EditPortfolio user={1}/>}
+                {portfolioAction==='add' && <AddPortfolio fetchData={fetchData}/>}
+                {portfolioAction==='edit' && <EditPortfolio user={1} fetchData={fetchData}/>}
             </div>
         </div>
     );
