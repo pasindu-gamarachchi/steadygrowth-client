@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AddPortfolio from '../AddPortfolio/AddPortfolio';
-
+import EditPortfolio from "../EditPortfolio/EditPortfolio";
 
 const PortfolioTabs = () => {
 
@@ -18,7 +18,7 @@ const PortfolioTabs = () => {
             </div>
             <div>
                 {portfolioAction==='add' && <AddPortfolio/>}
-                {portfolioAction==='edit' && <div></div>}
+                {portfolioAction==='edit' && <EditPortfolio user={1}/>}
             </div>
         </div>
     );

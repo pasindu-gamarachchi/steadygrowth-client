@@ -6,7 +6,7 @@ const FormInput = ({ name, value, valid, handleChange, invalidWarning}) => {
   const label = name;
 
   const showWarning = !valid || invalidWarning;
-  console.log(`Received val  : ${value}`);
+  //console.log(`Received val  : ${value}`);
 
   return (
     <div>

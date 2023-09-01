@@ -8,8 +8,8 @@ const DataList = ({handleStock}) => {
 
     return (
         <div>
-            <label for="ice-cream-choice">Choose a Stock:</label>
-            <input list="stocks" id="ice-cream-choice" onSelect={handleStock} name="ice-cream-choice" />
+            <label for="stock-choice">Choose a Stock:</label>
+            <input list="stocks" id="stock-choice" onSelect={handleStock} name="symb" />
             <datalist id="stocks">
                 {
                     Stocks.map(
