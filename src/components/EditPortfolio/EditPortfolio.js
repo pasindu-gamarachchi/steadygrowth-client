@@ -2,7 +2,7 @@ import FormRow from "../FormRow/FormRow";
 import "./EditPortfolio.scss";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import AddPortfolio from "../AddPortfolio/AddPortfolio";
 
 
 const EditPortfolio = ({user}) => {
@@ -37,11 +37,18 @@ const EditPortfolio = ({user}) => {
             <div className="editContainer">
                 {
                     portfolioData.map((elem)=>{
+                        /*
                         return <FormRow stock_symb={elem.stock_id} 
                                         purchase_date={elem.purchase_date}
                                         purchase_price={elem.purchase_price}
                                         purchase_shares={elem.purchase_shares}
-                        />
+                                
+                        />*/
+                        return <AddPortfolio isEdit={true} symb={"aapl"} shares={elem.purchase_shares}
+                                    purchDateData={elem.purchase_date}
+                                    price={elem.purchase_price}
+                        
+                                />
                     })
                 }
             </div>

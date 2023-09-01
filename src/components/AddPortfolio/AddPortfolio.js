@@ -6,9 +6,12 @@ import axios from 'axios';
 
 const BASEURL = process.env.REACT_APP_SERVER_URL || "http://localhost:5050"; ///TODO : FIX THIS
 
-const AddPortfolio = () => {
+const AddPortfolio = ({isEdit, symb, shares, purchDateData, price}) => {
 
-    const [formValues, setformValues] = useState({symb: "", shares: 0, purchaseDate: "", price: 0.00})
+    console.log(`Received : ${isEdit}, ${symb}, ${shares}, ${purchDateData}, ${price}`);
+
+    const [formValues, setformValues] = useState({symb: symb || "", shares: shares || 0 ,
+         purchaseDate: purchDateData ||  "", price: price || 0.00})
     const [isValid, setisValid] = useState({shares: true, price: true, purchaseDate:false});
 
     const handleStock = ()=>{
@@ -23,7 +26,7 @@ const AddPortfolio = () => {
             axios
             .get(`${BASEURL}/api/chartdata/ondate/${formValues.symb}?ondate=${formValues.purchaseDate}`)
             .then((resp) =>{
-                //console.log(resp.data);
+                console.log(resp.data);
                 if (resp.data.length >0){
                     console.log(`Received data ${resp.data}`);
                     console.log(resp.data);
@@ -38,7 +41,7 @@ const AddPortfolio = () => {
 
                 }
             })
-            .then((purchDateData)=>{
+            .then((purchDateData)=>{ //TODO if edit update existing data do not insert
                 if(purchDateData){
                    console.log(`Putting data --> ${purchDateData}`);
                    console.log(purchDateData);
