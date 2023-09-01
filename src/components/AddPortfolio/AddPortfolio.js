@@ -8,9 +8,10 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const BASEURL = process.env.REACT_APP_SERVER_URL || "http://localhost:5050"; ///TODO : FIX THIS
 
-const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, portId}) => {
+const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, portId, triggerReload}) => {
 
-    console.log(`Received : ${isEdit}, ${symb}, ${shares}, ${purchDateData}, ${price}, ${portId}`);
+    //console.log(`Received : ${isEdit}, ${symb}, ${shares}, ${purchDateData}, ${price}, ${portId}`);
+    // console.log(`Received shares : ${shares}`);
 
     const [formValues, setformValues] = useState({symb: symb || "", shares: shares || 0 ,
          purchaseDate: purchDateData ||  "", price: price || 0.00})
@@ -137,6 +138,32 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
     }
 
+    const handleDelete = () =>{
+        console.log(`Delete called`)
+
+        const dataToUpdate = {
+            "user_id": 1,
+            "stock_id": 2, 
+            "purchase_shares": 0,
+            "purchase_date": formValues.purchaseDate,
+            "purchase_price":  formValues.price,
+            "port_id": portId
+          }
+          //console.log(dataToUpdate);
+           axios.patch(`${BASEURL}/api/portfolio`, dataToUpdate)
+           .then((resp) =>{
+            console.log(resp);
+            fetchData(true);
+            triggerReload(true);
+
+
+           })
+           .catch((err)=>{
+            console.error(err);
+           })
+
+    }
+
     const handleChange = (e) =>{
         //console.log(`${e.target.name} :  ${e.target.value}`);
         const newValues = { ...formValues };
@@ -187,6 +214,9 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                 <button>
                     CANCEL
                 </button>
+                {
+                    isEdit && <button onClick={handleDelete}>DELETE</button>
+                }
             </div>
         </div>
     );
