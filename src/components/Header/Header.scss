@@ -3,10 +3,13 @@
 
 
 .header{
+    outline: 1px solid red;
+
     padding-block: 1rem;
     display: flex;
     justify-content: space-between;
     //align-items: baseline;
+    max-width: 100%;
 
     @include tablet{
         @include tablet-margin;
@@ -19,14 +22,19 @@
 
     &__nav{
         display: flex;
-        gap: 1.5rem;
+        // gap: 1rem;
         align-items: center;
+        outline: 1px solid red;
+        justify-content: space-around;
+
 
         &-text{
             font-size: 0.75rem;
             font-family: "Titillium Web";
             padding-inline: 1rem;
             //padding-bottom: 0.05rem;
+            color: $interactive-color;
+            text-decoration: none;
             @include tablet{
                 font-size: 1rem;
                 font-family: "Titillium Web";
@@ -42,6 +50,8 @@
 
 .logo-container{
     
+    outline: 1px solid red;
+    max-width: 5rem;
 
     @include tablet {
         max-width: 10rem;
@@ -51,6 +61,7 @@
     &__img{
 
         max-width: 5rem;
+        object-fit: cover;
 
         @include tablet {
             object-fit: cover;
