@@ -12,6 +12,9 @@
 
 body {
   font-family: "Titillium Web";
+  min-height: calc(100vh - 40px);
+
+
 
 }
 
@@ -26,6 +29,9 @@ ul {
   list-style: none;
 
   li {
+    text-decoration: none;
+  }
+  a {
     text-decoration: none;
   }
 }
