@@ -70,3 +70,13 @@
     }
 
 }
+
+.image{
+    max-width: 5rem;
+    object-fit: cover;
+
+    @include tablet {
+        object-fit: cover;
+        max-width: 10rem;
+    }
+}

@@ -4,6 +4,8 @@ import { useState } from 'react';
 import StockChart from '../StockChart/StockChart';
 import axios from 'axios';
 
+const BASEURL = process.env.REACT_APP_SERVER_URL; 
+
 const ChartsTab = ({symb}) => {
 
     const [toggleState, setToggleState] = useState('3mo');
@@ -53,8 +55,12 @@ const ChartsTab = ({symb}) => {
 
     return (
         <div>
+            <div className='tabsTitleContainer'>
+                <h2 className='tabsTitleContainer__header'>Apple Inc. </h2>
+                <img className='tabsTitleContainer__img' src={`${BASEURL}/logos/${symb}/logo.svg`} alt='Company Logo'/>
+            </div>
             <div className='tabsContainer'>
-                <div onClick={() =>toggleTab("3mo")} className={toggleState==='3mo' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>3 mo</div>
+                <div onClick={() =>toggleTab("3mo")} className={toggleState==='3mo' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>3 Month</div>
                 <div onClick={() =>toggleTab("1y")} className={toggleState==='1y' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>1 Year</div>
                 <div onClick={() =>toggleTab("3y")} className={toggleState==='3y' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>3 Year</div>
             </div>
