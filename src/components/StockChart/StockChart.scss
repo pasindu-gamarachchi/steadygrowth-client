@@ -2,10 +2,14 @@
 @use "../../styles/partials/mixins" as *;
 
 .chartContainer{
-    //width: 45rem;
-    //background-color: $interactive-color;
-    width: 18rem;
+
+    width: max(60vw, 18rem);
+    height: 13.5rem;
     @include tablet{
-        width: 40rem;
+        width: max(80vw, 40rem);
+    }
+
+    @include desktop{
+        width: $desktop-width;
     }
 }
