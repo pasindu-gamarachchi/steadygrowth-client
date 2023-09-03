@@ -1,5 +1,11 @@
-
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .chartContainer{
-    width: 45rem;
+    //width: 45rem;
+    //background-color: $interactive-color;
+    width: 18rem;
+    @include tablet{
+        width: 40rem;
+    }
 }

@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header/>
+        
         <Routes>
           <Route path="/" element={<HomePage />}/>
           <Route path="/signup" element={<SignupPage/>}/>
@@ -22,8 +23,10 @@ function App() {
           <Route path="/charts/:symb" element={<ChartsPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
         </Routes>
+        
         <Footer/>
       </BrowserRouter>
+      
     </div>
   );
 }

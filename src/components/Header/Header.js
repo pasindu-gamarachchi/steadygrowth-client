@@ -13,14 +13,14 @@ const Header = () => {
                 </Link>
             </div>
             <nav className='header__nav'>
-                <Link to="/">
+                <Link to="/charts">
                     <h2 className='header__nav-text'>Charts</h2>
                 </Link>
                 <Link to="/portfolio">
                     <h2 className='header__nav-text'>Portfolio</h2>
                 </Link>
                 <Link to="/">
-                    <h2 className='header__nav-text'>Ratios</h2>
+                    <h2 className='header__nav-text'>User</h2>
                 </Link>
             </nav>
         </div>

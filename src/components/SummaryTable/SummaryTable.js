@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import SummaryCard from '../SummaryCard/SummaryCard';
 import axios from 'axios';
-
+import "./SummaryTable.scss";
 
 const SummaryTable = ({symb}) => {
 
@@ -57,7 +57,8 @@ const SummaryTable = ({symb}) => {
 
   return (
       <div>
-          <div>
+          <div className='summaryTableMain'>
+              <SummaryCard statsObj={null} isColName={true}/>
               <SummaryCard statsObj={assembleData(threeMonthData, oneYearData, threeYearData, "min")}/>
               <SummaryCard statsObj={assembleData(threeMonthData, oneYearData, threeYearData, "max")}/>
               <SummaryCard statsObj={assembleData(threeMonthData, oneYearData, threeYearData, "avg")}/>
