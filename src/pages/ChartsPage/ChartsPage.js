@@ -25,11 +25,15 @@ const ChartsPage = () => {
 
 
     return (    
-        <div className="mainContainer">
-            <ChartsTab symb={symb}/>
-            <div>
-                <StockDataList/>
-                <SummaryTable symb={symb}/>
+        <div className="chartsMainContent">
+            <div className="chartsMainContainer">
+                <ChartsTab symb={symb}/>
+                
+                <div>
+                    <StockDataList/>
+                    {<SummaryTable symb={symb}/>}
+                </div>
+                
             </div>
         </div>
     );
