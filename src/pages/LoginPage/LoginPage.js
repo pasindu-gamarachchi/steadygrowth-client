@@ -20,7 +20,7 @@ const LoginPage = () => {
         })
             .then((response) => {
                 sessionStorage.setItem("token", response.data.token);
-                navigate('/');
+                navigate('/charts');
             })
             .catch((error) => {
                 setError(error.response.data);

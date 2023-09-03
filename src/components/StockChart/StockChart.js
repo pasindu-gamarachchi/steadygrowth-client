@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import {Line} from 'react-chartjs-2' 
-import Chart from 'chart.js/auto';
+import Chart, { scales } from 'chart.js/auto';
 import './StockChart.scss'
 
 const StockChart = ({label, chartData, symb}) => {
 
 
-    console.log(`Stock chart with : ${label} `);
     //console.log(chartData); 
     /*
     const [userData, setUserData] = useState({
@@ -26,21 +25,34 @@ const StockChart = ({label, chartData, symb}) => {
     const userData = {
         labels: chartData.map((elem)=>{
             return elem.Date
-        }
+        },
 
+        
         ),
         datasets: [{
-            label: label,
+            
+            // borderColor: 'rgb(75, 192, 192)',
+
             data: chartData.map((elem)=>{
                return elem.Close
             })
         }]};
+    
+    const opts = {
+        plugins: {
+            legend: false, // Hide legend
+            title: {
+                display:true,
+                text: 'USD $'
+            }
+        }
+
+    }
 
     return (
         <div>
             <div className='chartContainer'>
-                <h3>{symb}</h3>
-                <Line redraw={true} data={userData}/>
+                <Line redraw={true} data={userData} options={opts}/>
             </div>
         </div>
     );
