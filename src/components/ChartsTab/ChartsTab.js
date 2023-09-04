@@ -19,7 +19,7 @@ const ChartsTab = ({symb}) => {
         setToggleState(per);
     }
 
-    console.log(`Symbol : ${symb}`); 
+    // console.log(`Symbol : ${symb}`); 
 
     useEffect(() => {
         axios

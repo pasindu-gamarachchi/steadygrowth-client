@@ -46,7 +46,8 @@ const StockChart = ({label, chartData, symb}) => {
                 text: 'USD $'
             }
         },
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false 
 
     }
 
