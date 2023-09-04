@@ -1,28 +1,34 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+$min-width-perc : 18%;
+$tabl-min-width-perc: 18%;
+$min-height: 1.5rem;
 
 .portSummaryCard{
     display: flex;
-    gap: 1rem;
+    gap: 2.5%;
     margin-block: 0.5rem;
     margin-inline:1rem;
-    //outline: 1px solid red;
-
+    // outline: 1px solid red;
+    min-height: $min-height;
 
 
 
     &__stat{
-        min-width: 15%;
-        width: 15%;
+        min-width: $min-width-perc;
+        width: $min-width-perc;
         //outline: 1px solid blue;
         text-align: center;
         //outline: 1px solid blue;
 
 
         &--info{
-            min-width: 15%;
-            width:15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: $min-width-perc;
+            width: $min-width-perc;
             // outline: 1px solid blue;
             background-color: #333;
             color: gold;
@@ -31,35 +37,68 @@
             text-transform: uppercase;
             letter-spacing: 2%;
             text-align: center;
-            vertical-align:middle;
+            vertical-align:bottom;
+
+            @include tablet{
+                min-width: $tabl-min-width-perc;
+                width: $tabl-min-width-perc;
+                //gap: 0rem;
+                // outline: 1px solid blue;
+                background-color: #333;
+                color: gold;
+                font-weight: 700;
+                font-size: 0.8rem;
+
+                text-transform: uppercase;
+                letter-spacing: 2%;
+                text-align: center;
+                vertical-align:middle;
+            }
 
         }
     }
 
     &__numb{
-        width: 15%;
-        min-width: 15%;
+        min-width: $min-width-perc;
+        width: $min-width-perc;
         text-align: center;
         //outline: 1px solid green;
         font-size: 0.8rem;
         background-color: $ok-color;
         color: whitesmoke;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet{
+            font-weight: 700;
+            font-size: 1rem;
+        }
 
         &--loss{
             background-color: $error-color;
-            width: 15%;
-            min-width: 15%;
+            min-width: $min-width-perc;
+            width: $min-width-perc;
             text-align: center;
             font-size: 0.8rem;
             color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include tablet{
+                font-weight: 700;
+                font-size: 1rem;
+            }
 
 
         }
 
 
         &--info{
-            width: 20%;
-            min-width: 20%;
+            width: $min-width-perc;
+            min-width: $min-width-perc;
             //outline: 1px solid blue;
             background-color: #333;
             color: gold;
