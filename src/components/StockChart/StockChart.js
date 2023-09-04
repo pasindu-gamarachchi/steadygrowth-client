@@ -3,7 +3,7 @@ import {Line} from 'react-chartjs-2'
 import Chart, { scales } from 'chart.js/auto';
 import './StockChart.scss'
 
-const StockChart = ({label, chartData, symb}) => {
+const StockChart = ({label, chartData, symb, spendData}) => {
 
 
     //console.log(chartData); 
@@ -33,20 +33,31 @@ const StockChart = ({label, chartData, symb}) => {
     
             
             ),
-            datasets: [{
+            datasets: [
+                {
                 
-                // borderColor: 'rgb(75, 192, 192)',
-    
-                data: chartData.map((elem)=>{
-                   return elem.portSum
-                })
-            }]};
+                    // borderColor: 'rgb(75, 192, 192)',
+                    label: 'Portfolio Value', 
+                    data: chartData.map((elem)=>{
+                    return elem.portSum
+                    })
+                },
+                {
+                    label: 'Total Spend',
+                    data: spendData.map((elem)=>{
+                        return elem.spend
+                        })
+                }
+        
+            ]
+        
+        };
         
         opts = {
             plugins: {
-                legend: false, // Hide legend
+                legend: true, // Hide legend
                 title: {
-                    display:true,
+                    display:false,
                     text: 'Portfolio USD $'
                 }
             },
