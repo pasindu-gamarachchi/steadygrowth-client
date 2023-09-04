@@ -78,10 +78,57 @@
         justify-content: center;
     }
 
+    &--modforedit{
+        display: flex;
+        justify-content: space-between;
+        // outline: 1px solid red;
+        // width: 50%;
+        align-items: center;
+        @include tablet{
+            // width: 50%;
+            justify-content: center;
+            padding-inline: 13%;
+        }
+    }
+
     &__btn{
         margin-inline: 5%;
         width: 45%;
         height: 1.5rem;
+    
+        // margin-top: 0.5rem;
+        background: $interactive-color;
+        border: 1px solid $interactive-color;
+    
+        color: #fff;
+        border-radius: 0.5rem;
+        padding-inline: 0.5rem;
+        padding-block:0.25rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-decoration: none;
+    
+        @include tablet{
+            height: 1.75rem;
+            width: 15%;
+            font-size: 1rem;
+
+    
+        }
+    
+        &:hover {
+            background-color: grey; 
+            transition: border-color 0.5s cubic-bezier(.76,0,.24,1),background-color 0.5s cubic-bezier(.76,0,.24,1);
+            border: 1px solid grey;
+    
+        }
+    }
+
+    &__btn--modforedit{
+        margin-inline: 5%;
+        width: 45%;
+        height: 1.5rem;
+        // outline: 1px solid red;
     
         // margin-top: 0.5rem;
         background: $interactive-color;

@@ -211,16 +211,16 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                 <input className='dataListContainer__inp' type="date" name="purchaseDate" onChange={handleChange} value={purchDateData}/>
             </div>
             {isEdit? 
-                <div className="btnContainer">
-                    <button onClick={handleSubmission} className="btnContainer__btn">
+                <div className="btnContainer--modforedit">
+                    <button onClick={handleSubmission} className="btnContainer__btn--modforedit">
                         SAVE
                     </button>
-                    <button className="btnContainer__btn">
+                    <button className="btnContainer__btn--modforedit">
                         CANCEL
                     </button>
-                    {
-                        isEdit && <button onClick={handleDelete} className="btnContainer__btn" >DELETE</button>
-                    }
+                    
+                    <button onClick={handleDelete} className="btnContainer__btn--modforedit" >DELETE</button>
+                    
                 </div>:
                     <div className="btnContainer">
                     <button onClick={handleSubmission} className="btnContainer__btn">
