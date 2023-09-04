@@ -4,6 +4,7 @@
 
 .header{
     outline: 1px solid red;
+    background-color: $background-color;
 
     padding-block: 1rem;
     display: flex;
@@ -12,11 +13,13 @@
     max-width: 100%;
 
     @include tablet{
-        @include tablet-margin;
+        padding-inline: $tablet-margin;
     }
 
     @include desktop{
-        @include desktop-margin;
+        // @include desktop-margin;
+        padding-inline: $desktop-margin;
+
 
     }
 

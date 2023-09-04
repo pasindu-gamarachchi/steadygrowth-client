@@ -13,19 +13,19 @@ const SummaryTable = ({symb}) => {
 
   useEffect(() => {
     axios
-        .get(`http://localhost:5050/api/baseStats/${symb}?from=2019-01-01&to=2019-12-31`)
+        .get(`http://localhost:5050/api/baseStats/${symb}?from=2022-09-03&to=2023-09-04`)
         .then((resp) =>{
             const newChartData = resp.data;
             setoneYearData(newChartData);
             return axios
-                .get(`http://localhost:5050/api/baseStats/${symb}?from=2019-10-01&to=2019-12-31`);
+                .get(`http://localhost:5050/api/baseStats/${symb}?from=2023-06-04&to=2023-09-04`);
         })
         .then((resp)=>{
             //console.log(resp.data);
             const newChartData2 = resp.data;
             setthreeMonthData(newChartData2);
             return axios
-                .get(`http://localhost:5050/api/baseStats/${symb}?from=2017-01-01&to=2019-12-31`);
+                .get(`http://localhost:5050/api/baseStats/${symb}?from=2020-09-03&to=2023-09-04`);
         }).then((resp)=>{
             //console.log(resp.data);
             setthreeYearData(resp.data);
