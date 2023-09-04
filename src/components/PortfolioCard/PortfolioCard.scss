@@ -1,0 +1,75 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.portSummaryCard{
+    display: flex;
+    gap: 1rem;
+    margin-block: 0.5rem;
+    margin-inline:1rem;
+    //outline: 1px solid red;
+
+
+
+
+    &__stat{
+        min-width: 15%;
+        width: 15%;
+        //outline: 1px solid blue;
+        text-align: center;
+        //outline: 1px solid blue;
+
+
+        &--info{
+            min-width: 15%;
+            width:15%;
+            // outline: 1px solid blue;
+            background-color: #333;
+            color: gold;
+            font-weight: 700;
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2%;
+            text-align: center;
+            vertical-align:middle;
+
+        }
+    }
+
+    &__numb{
+        width: 15%;
+        min-width: 15%;
+        text-align: center;
+        //outline: 1px solid green;
+        font-size: 0.8rem;
+        background-color: $ok-color;
+        color: whitesmoke;
+
+        &--loss{
+            background-color: $error-color;
+            width: 15%;
+            min-width: 15%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: whitesmoke;
+
+
+        }
+
+
+        &--info{
+            width: 20%;
+            min-width: 20%;
+            //outline: 1px solid blue;
+            background-color: #333;
+            color: gold;
+            font-weight: 700;
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2%;
+            text-align: center;
+            vertical-align:middle;
+
+        }
+    }
+}

@@ -60,7 +60,7 @@ const PortfolioPage = () => {
     }
     // console.log(`Portfolio Page loaded.`)
     return (
-        <main className='mainContainer'>
+        <main className='portfolioMainContainer'>
             <PortfolioDisp isDataLoadNeeded={isDataLoadNeeded} fetchData={fetchData} user_id={user.id}/>
             <PortfolioTabs fetchData={fetchData} user_id={user.id}/>
         </main>

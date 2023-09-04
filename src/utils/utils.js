@@ -27,9 +27,33 @@ const isValidStockDay = (dateStr) =>{
     return new Date(dateStr) <= new Date(yesterday.toDateString());
 }
 
+const generatePorfCardData = (portfObj)=>{
+    const summData =  []
+    for (let i=0; i< portfObj.length-1; i++){
+        const cval = portfObj[i].stockSumm[
+            portfObj[i].stockSumm.length-1
+        ].stockValue;
+        const pval = portfObj[i].stockSumm[0].stockValue;
+        const profval = Number(cval - pval).toFixed(2)
+        const portfSumm = {
+            purchaseDate: portfObj[i].stockSumm[0].date,
+            stockSymbol : portfObj[i].stock_symbol,
+            purchaseValue : pval ,
+            currentValue: cval,
+            profitValue: profval
+        }
+        summData.push(portfSumm);
+    }
+
+    return summData;
+
+
+}
+
 
 module.exports = {
     isInt,
     isValidStockDay,
-    isIntgtZero
+    isIntgtZero,
+    generatePorfCardData
 }

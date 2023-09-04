@@ -1,0 +1,11 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.portfolioTable{
+    margin-block: 1rem;
+    &__heading{
+        display: flex;
+        justify-content: center;
+    }
+}
