@@ -10,6 +10,7 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
 
 
     const [portData, setPortData] = useState([]);
+    const [spendData, setspendData] = useState([]);
     const [isLoading, setisLoading] = useState(true);
     //const []
     useEffect(() => {
@@ -17,10 +18,21 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
           .get(`${BASEURL}/api/portfolioCalcs?user_id=${user_id}`)
           .then((response) => {
             //console.log(response.data[2].vals);
+            console.log(response.data);
+
             setPortData(response.data[response.data.length-1].vals);
-            setisLoading(false);
+            // setisLoading(false);
             //console.log(portData);
 
+          })
+          .then((resp)=>{
+            axios.get(`${BASEURL}/api/portfolioCalcs/spend?user_id=${user_id}`)
+                .then((response)=>{
+                  setspendData(response.data);
+                  console.log(response.data);
+                  setisLoading(false);
+
+                })
           })
           .catch((error) => {
             console.log(error);
@@ -38,7 +50,7 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
 
     return (
         <div>
-            <StockChart StockChart label={"3mo"} chartData={portData} symb={"Portfolio"}/>
+            <StockChart StockChart label={"3mo"} chartData={portData} symb={"Portfolio"} spendData={spendData}/>
 
         </div>
     );
