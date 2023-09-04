@@ -53,6 +53,7 @@ const EditPortfolio = ({user, fetchData}) => {
                                     fetchData={fetchData} key={elem.id}
                                     portId={elem.port_id}
                                     triggerReload={triggerReload}
+                                    user={user}
                                     
                         
                                 />

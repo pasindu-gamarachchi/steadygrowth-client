@@ -1,40 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import StockChart from '../StockChart/StockChart';
+import axios from 'axios';
 
-const PortfolioDisp = ({isDataLoadNeeded, fetchData}) => {
+
+const BASEURL = process.env.REACT_APP_SERVER_URL; 
 
 
-    const [portData, setPortData] = useState([])
+const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
 
+
+    const [portData, setPortData] = useState([]);
+    const [isLoading, setisLoading] = useState(true);
+    //const []
     useEffect(() => {
-        const data = [{
-            "Date": "2019-01-02",
-            "Open": 154.89,
-            "High": 158.85,
-            "Low": 154.23,
-            "Close": Math.floor(Math.random() * 100)
-    
-          },
-          {
-            "Date": "2019-01-03",
-            "Open": 143.98,
-            "High": 145.72,
-            "Low": 142,
-            "Close": Math.floor(Math.random() * 100)
-          },
-          {
-            "Date": "2019-01-04",
-            "Open": 144.53,
-            "High": 148.55,
-            "Low": 143.8,
-            "Close": Math.floor(Math.random() * 100)
-          }];
-        setPortData(data);
+        axios
+          .get(`${BASEURL}/api/portfolioCalcs?user_id=${user_id}`)
+          .then((response) => {
+            //console.log(response.data[2].vals);
+            setPortData(response.data[response.data.length-1].vals);
+            setisLoading(false);
+            //console.log(portData);
+
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         console.log("Portfolio Data loaded.");
         fetchData(false);
 
     }, [isDataLoadNeeded])
 
+
+    if (isLoading){
+      return <p>Loading...</p>
+    }
     
 
     return (
