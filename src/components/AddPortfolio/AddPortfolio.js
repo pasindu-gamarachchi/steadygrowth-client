@@ -6,13 +6,13 @@ import axios from 'axios';
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 
-const BASEURL = process.env.REACT_APP_SERVER_URL || "http://localhost:5050"; ///TODO : FIX THIS
+const BASEURL = process.env.REACT_APP_SERVER_URL || "http://localhost:5050"; ///TODO : FIX THIS user={user_id}
 
-const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, portId, triggerReload}) => {
+const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, portId, triggerReload, user}) => {
 
     //console.log(`Received : ${isEdit}, ${symb}, ${shares}, ${purchDateData}, ${price}, ${portId}`);
     // console.log(`Received shares : ${shares}`);
-
+    // console.log(`User : ${user}`);
     const [formValues, setformValues] = useState({symb: symb || "", shares: shares || 0 ,
          purchaseDate: purchDateData ||  "", price: price || 0.00})
     const [isValid, setisValid] = useState({shares: true, price: true, purchaseDate:false});
@@ -23,8 +23,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
 
     const handleSubmission = ()=>{
-        console.log(isFormValid());
-        console.log(BASEURL);
+        //console.log(isFormValid());
+        // console.log(BASEURL);
 
         if (isFormValid()){
             if (isEdit){
@@ -52,8 +52,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                    console.log(`Putting data --> ${purchDateData}`);
                    console.log(purchDateData);
                    const dataToUpdate = {
-                    "user_id": 1,
-                    "stock_id": 2, 
+                    "user_id": user,
+                    "stock_id": formValues.symb, 
                     "purchase_shares": formValues.shares,
                     "purchase_date": formValues.purchaseDate,
                     "purchase_price":  purchDateData[0].Close,
@@ -105,8 +105,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                    console.log(`Putting data --> ${purchDateData}`);
                    console.log(purchDateData);
                    const dataToInsert = {
-                    "user_id": 1,
-                    "stock_id": 2, 
+                    "user_id": user,
+                    "stock_id":  formValues.symb, 
                     "purchase_date": formValues.purchaseDate,
                     "purchase_price": purchDateData[0].Close,
                     "purchase_shares": formValues.shares
@@ -142,8 +142,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
         console.log(`Delete called`)
 
         const dataToUpdate = {
-            "user_id": 1,
-            "stock_id": 2, 
+            "user_id": user,
+            "stock_id": formValues.symb, 
             "purchase_shares": 0,
             "purchase_date": formValues.purchaseDate,
             "purchase_price":  formValues.price,
