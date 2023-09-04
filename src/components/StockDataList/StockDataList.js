@@ -32,7 +32,7 @@ const StockDataList = () => {
                     {
                         Stocks.map(
                             (elem) =>{
-                                return <option className='stockDataListMainContainer__opt' value={elem} ></option>
+                                return <option className='stockDataListMainContainer__opt' value={elem} key={elem} ></option>
                             }
                         )
                     }
