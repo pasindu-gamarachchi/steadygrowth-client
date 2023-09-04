@@ -210,17 +210,27 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                 <label htmlFor="purchaseDate" className="calendarContainer__label">Purchase Date</label>
                 <input className='dataListContainer__inp' type="date" name="purchaseDate" onChange={handleChange} value={purchDateData}/>
             </div>
-            <div className="btnContainer">
-                <button onClick={handleSubmission} className="btnContainer__btn">
-                    SAVE
-                </button>
-                <button className="btnContainer__btn">
-                    CANCEL
-                </button>
-                {
-                    isEdit && <button onClick={handleDelete} className="btnContainer__btn" >DELETE</button>
-                }
-            </div>
+            {isEdit? 
+                <div className="btnContainer">
+                    <button onClick={handleSubmission} className="btnContainer__btn">
+                        SAVE
+                    </button>
+                    <button className="btnContainer__btn">
+                        CANCEL
+                    </button>
+                    {
+                        isEdit && <button onClick={handleDelete} className="btnContainer__btn" >DELETE</button>
+                    }
+                </div>:
+                    <div className="btnContainer">
+                    <button onClick={handleSubmission} className="btnContainer__btn">
+                        SAVE
+                    </button>
+                    <button className="btnContainer__btn">
+                        CANCEL
+                    </button>
+                </div>
+            }
         </div>
     );
 };
