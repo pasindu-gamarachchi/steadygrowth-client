@@ -1,0 +1,112 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.addPortfolioContainer{
+    outline: 1px solid red;
+    margin-block: 1rem;
+    margin-inline: 1rem;
+
+    &__heading{
+        margin-block: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        // background-color: red;
+        padding-block: 0.5rem;
+    }
+}
+
+.calendarContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 0.5rem;
+    // outline: 1px solid red;
+    margin-block:1rem;
+    height: 1.25rem;
+
+    @include tablet{
+        // justify-content: s;
+        align-items: center;
+        height: 1.75rem;
+        justify-content: center;
+    }
+
+    &__label{
+        // outline: 1px solid red;
+        margin-right: 0.5rem;
+        min-width: 20%;
+        @include tablet{
+            margin-right:1rem;
+
+        }
+    }
+
+    &__inp{
+        width: 50%;
+        background-color: #ccc;
+        border-radius: 0.5rem;
+        border: 1px solid  #ccc;
+        // justify-content: center;
+        padding-left: 5%;
+        text-align: center;
+        //color: steelblue;
+
+        @include tablet{
+            width: 30%;
+            height: 1.5rem;
+            font-size:1.25rem;
+
+        }
+        @include desktop{
+            width: 25%;
+
+        }
+
+
+    }
+}
+
+
+.btnContainer{
+    display: flex;
+    justify-content: space-between;
+    outline: 1px solid red;
+    // width: 50%;
+    align-items: center;
+    @include tablet{
+        width: 50%;
+    }
+
+    &__btn{
+        margin-inline: 5%;
+        width: 45%;
+        height: 1.5rem;
+    
+        // margin-top: 0.5rem;
+        background: $interactive-color;
+        border: 1px solid $interactive-color;
+    
+        color: #fff;
+        border-radius: 0.5rem;
+        padding-inline: 0.5rem;
+        padding-block:0.25rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-decoration: none;
+    
+        @include tablet{
+            height: 1.25rem;
+            width: 50%;
+    
+    
+        }
+    
+        &:hover {
+            background-color: grey; 
+            transition: border-color 0.5s cubic-bezier(.76,0,.24,1),background-color 0.5s cubic-bezier(.76,0,.24,1);
+            border: 1px solid grey;
+    
+        }
+    }
+}
+

@@ -9,7 +9,7 @@ const FormInput = ({ name, value, valid, handleChange, invalidWarning}) => {
   //console.log(`Received val  : ${value}`);
 
   return (
-    <div>
+    <div className="inputContainer">
       <label className="input__label" htmlFor={name}>
         {name}
       </label>
