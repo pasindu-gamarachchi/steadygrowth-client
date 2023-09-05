@@ -4,6 +4,7 @@
 
 .MainContent{
     min-height: calc(100vh - $footer-height);
+    margin-top: 2rem;
 
     @include tablet{
         margin-top: 5rem;
