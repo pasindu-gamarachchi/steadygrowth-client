@@ -26,6 +26,14 @@
     margin-inline: $desktop-margin;
 }
 
+@mixin tablet-padding{
+  margin-inline: $tablet-margin;
+}
+
+@mixin desktop-padding{
+  margin-inline: $desktop-margin;
+}
+
 @mixin small-body-font {
   font-size: 0.6875rem;
   line-height: 1rem;

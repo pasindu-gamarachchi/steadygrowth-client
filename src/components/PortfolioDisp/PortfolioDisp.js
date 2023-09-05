@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import StockChart from '../StockChart/StockChart';
 import PortfolioTable from "../PortfolioTable/PortfolioTable";
+import EmptyPorfolio from '../EmptyPortfolio/EmptyPortfolio';
 import axios from 'axios';
 import "./PortfolioDisp.scss"
 
@@ -15,16 +16,23 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
     const [spendData, setspendData] = useState([]);
     const [isLoading, setisLoading] = useState(true);
     const [allPortData, setallPortData] = useState([]);
+    const [isEmptyPorf, setisEmptyPortf] = useState(true);
     //const []
+    console.log(`Porfolio Disp loaded`)
     useEffect(() => {
         axios
           .get(`${BASEURL}/api/portfolioCalcs?user_id=${user_id}`)
           .then((response) => {
             //console.log(response.data[2].vals);
+            console.log('made call for port data')
             console.log(response.data);
+            if (response.data.length >0){
+              setPortData(response.data[response.data.length-1].vals);
+              setallPortData(response.data);
 
-            setPortData(response.data[response.data.length-1].vals);
-            setallPortData(response.data);
+            }
+            setisLoading(false);
+
             // setisLoading(false);
             //console.log(portData);
 
@@ -51,6 +59,9 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
       return <p>Loading...</p>
     }
     
+    if (isEmptyPorf){
+      return <EmptyPorfolio/>
+    }
 
     return (
         <div>
