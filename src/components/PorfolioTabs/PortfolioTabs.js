@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AddPortfolio from '../AddPortfolio/AddPortfolio';
 import EditPortfolio from "../EditPortfolio/EditPortfolio";
+import "./PortfolioTabs.scss"
 
 const PortfolioTabs = ({fetchData, user_id}) => {
 
@@ -12,9 +13,9 @@ const PortfolioTabs = ({fetchData, user_id}) => {
 
     return (
         <div>
-            <div className='tabsContainer'>
-                <div onClick={() =>toggleTab("add")} className={portfolioAction==='3mo' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>ADD</div>
-                <div onClick={() =>toggleTab("edit")} className={portfolioAction==='1y' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>EDIT</div>
+            <div className='updtabsContainer'>
+                <div onClick={() =>toggleTab("add")} className={portfolioAction==='add' ? "updtabsContainer__tab updtabsContainer__tab--active": "updtabsContainer__tab"}>ADD</div>
+                <div onClick={() =>toggleTab("edit")} className={portfolioAction==='edit' ? "updtabsContainer__tab updtabsContainer__tab--active": "updtabsContainer__tab"}>EDIT</div>
             </div>
             <div>
                 {portfolioAction==='add' && <AddPortfolio fetchData={fetchData} user={user_id}/>}

@@ -19,7 +19,7 @@ const EditPortfolio = ({user, fetchData}) => {
                 const newPortfolioData = resp.data;
                 setportfolioData(newPortfolioData);
                 setisLoading(false);
-                console.log(`Reloading for edit with ${resp.data}`);
+                console.log(`Reloading for edit with ${resp.data[0]}`);
                 setisPortfolioUpdated(false);
             })
             .catch((err)=>{
@@ -41,13 +41,13 @@ const EditPortfolio = ({user, fetchData}) => {
 
     return (
         <div>
-            <h2>Edit your Portfolio</h2>
+            <h2 className="editPortfheading">Edit your Portfolio</h2>
             <div className="editContainer">
                 {
                     portfolioData.filter((elem) =>
                         elem.purchase_shares >0 ).map((elem)=>{
 
-                        return <AddPortfolio isEdit={true} symb={"aapl"} shares={elem.purchase_shares}
+                        return <AddPortfolio isEdit={true} symb={elem.stock_symbol} shares={elem.purchase_shares}
                                     purchDateData={elem.purchase_date}
                                     price={elem.purchase_price}
                                     fetchData={fetchData} key={elem.id}

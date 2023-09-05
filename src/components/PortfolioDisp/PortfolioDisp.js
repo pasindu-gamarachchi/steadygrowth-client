@@ -31,6 +31,9 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
               setallPortData(response.data);
 
             }
+            else{
+              setisEmptyPortf(true);
+            }
             setisLoading(false);
 
             // setisLoading(false);
@@ -43,6 +46,14 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
                   setspendData(response.data);
                   console.log(response.data);
                   setisLoading(false);
+                  if (response.data.length >1){
+                    setisEmptyPortf(false);
+
+                  }
+                  else{
+                    setisEmptyPortf(true);
+
+                  }
 
                 })
           })

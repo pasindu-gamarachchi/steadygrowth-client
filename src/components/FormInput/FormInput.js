@@ -9,7 +9,7 @@ const FormInput = ({ name, value, valid, handleChange, invalidWarning}) => {
   //console.log(`Received val  : ${value}`);
 
   return (
-    <div>
+    <div className="inputContainer">
       <label className="input__label" htmlFor={name}>
         {name}
       </label>
@@ -22,18 +22,6 @@ const FormInput = ({ name, value, valid, handleChange, invalidWarning}) => {
         placeholder={name}
         onBlur={handleChange}
       />
-      {showWarning && (
-        <p className="input__warning">
-          <img
-            className="input__warning-icon"
-            src={errorIcon}
-            alt="error icon"
-          />
-          {!valid && "This field is required "}
-          {valid && invalidWarning && `Invalid ${label}`}
-
-        </p>
-      )}
     </div>
   );
 };

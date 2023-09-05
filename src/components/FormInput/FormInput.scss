@@ -1,0 +1,83 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inputContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 0.5rem;
+    // outline: 1px solid red;
+    margin-block:1rem;
+    @include tablet{
+        // justify-content: s;
+        align-items: center;
+        height: 1.75rem;
+        justify-content: center;
+    }
+}
+
+.input {
+    margin-right: 0.5rem;
+    @include tablet{
+        margin-right:1rem;
+
+    }
+    &__label{
+        text-transform: capitalize;
+        // outline: 1px solid red;
+        min-width: 20%;
+        @include tablet{
+            margin-right:1rem;
+
+        }
+
+
+    }
+    &__value {
+        width: 50%;
+        background-color: #ccc;
+        border-radius: 0.5rem;
+        border: 1px solid  #ccc;
+        // justify-content: center;
+        height: 1.25rem;
+
+        padding-left: 5%;
+        text-align: center;
+        // color: steelblue;
+        @include medium-body-font;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 1px solid $outline-color;
+        // width: 100%;
+        outline: none;
+        @include tablet{
+            width: 30%;
+            height: 1.5rem;
+            font-size:1.25rem;
+            // outline: 1px solid blue;
+
+
+        }
+        @include desktop{
+            width: 25%;
+
+        }
+
+        &:focus {
+        border: 1px solid $interactive-color;
+        }
+        &--invalid {
+        border: 1px solid $error-color;
+        }
+    }
+    &__warning {
+        display: flex;
+        align-items: center;
+        color: $error-color;
+        margin-top: 0.25rem;
+        @include small-body-font;
+    }
+    &__warning-icon {
+        // height: 1rem;
+        margin-right: 0.25rem;
+    }
+}

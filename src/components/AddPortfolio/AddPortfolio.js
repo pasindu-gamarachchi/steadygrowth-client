@@ -4,6 +4,7 @@ import FormInput from "../FormInput/FormInput";
 import { isInt, isValidStockDay, isIntgtZero } from "../../utils/utils";
 import axios from 'axios';
 import { Link, useNavigate, useParams } from "react-router-dom";
+import "./AddPortfolio.scss"
 
 
 const BASEURL = process.env.REACT_APP_SERVER_URL || "http://localhost:5050"; ///TODO : FIX THIS user={user_id}
@@ -200,24 +201,36 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
     }
     return (
-        <div>
-            <h2>Add Stock</h2>
+        <div className="addPortfolioContainer">
+            {!isEdit  && <h2 className="addPortfolioContainer__heading">Add to your portfolio</h2>}
             <DataList handleStock={handleChange} symbDef={symb}/>
             <FormInput name={"shares"} value={formValues.shares} valid={isValid.shares} handleChange={handleChange}/>
             <FormInput name={"price"} value={formValues.price} valid={isValid.price} handleChange={handleChange}/>
-            <label htmlFor="purchaseDate">Purchase Date</label>
-            <input type="date" name="purchaseDate" onChange={handleChange} value={purchDateData}/>
-            <div>
-                <button onClick={handleSubmission}>
-                    SAVE
-                </button>
-                <button>
-                    CANCEL
-                </button>
-                {
-                    isEdit && <button onClick={handleDelete}>DELETE</button>
-                }
+            <div className="calendarContainer">
+                <label htmlFor="purchaseDate" className="calendarContainer__label">Purchase Date</label>
+                <input className='dataListContainer__inp' type="date" name="purchaseDate" onChange={handleChange} value={purchDateData}/>
             </div>
+            {isEdit? 
+                <div className="btnContainer--modforedit">
+                    <button onClick={handleSubmission} className="btnContainer__btn--modforedit">
+                        SAVE
+                    </button>
+                    <button className="btnContainer__btn--modforedit">
+                        CANCEL
+                    </button>
+                    
+                    <button onClick={handleDelete} className="btnContainer__btn--modforedit" >DELETE</button>
+                    
+                </div>:
+                    <div className="btnContainer">
+                    <button onClick={handleSubmission} className="btnContainer__btn">
+                        SAVE
+                    </button>
+                    <button className="btnContainer__btn">
+                        CANCEL
+                    </button>
+                </div>
+            }
         </div>
     );
 };

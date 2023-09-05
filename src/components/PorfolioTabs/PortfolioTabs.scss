@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.updtabsContainer{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+    // gap:1rem;
+    // outline: 1px solid red;
+    @include tablet{
+        margin: 1.5rem;
+        
+    }
+
+
+    &__tab{
+        // background-color: grey;
+        border: 1px solid #ddd;
+        padding-inline: 0.5rem;
+        background: $unactiveColor;
+        color: #444;
+        @include tablet{
+            min-width: 10rem;
+            padding-block: 0.5rem;
+        }
+
+        &--active{
+            background-color: $activeColor;
+            font-weight: 700;
+        }
+    }
+}
+
