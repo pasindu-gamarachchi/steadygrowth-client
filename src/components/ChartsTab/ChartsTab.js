@@ -19,6 +19,23 @@ const ChartsTab = ({symb}) => {
         setToggleState(per);
     }
 
+   
+    const mapper = {
+        'aapl': 'Apple Inc.',
+        'amzn': 'Amazon.com, Inc.',
+        'bp': 'BP p.l.c.',
+        'googl': 'Alphabet Inc',
+        'mdb': 'MongoDB, Inc.',
+        'msft': 'Microsoft Corporation',
+        'nflx': 'Netflix, Inc.',
+        'shop': 'Shopify Inc.',
+        'su': 'Suncor Energy  Inc.',
+        'team': 'Atlassian Corp Plc',
+        'tsla': 'Tesla, Inc.'
+
+    }
+
+
     // console.log(`Symbol : ${symb}`); 
 
     useEffect(() => {
@@ -56,7 +73,7 @@ const ChartsTab = ({symb}) => {
     return (
         <div>
             <div className='tabsTitleContainer'>
-                <h2 className='tabsTitleContainer__header'>Apple Inc. </h2>
+                <h2 className='tabsTitleContainer__header'>{mapper[symb]} </h2>
                 <img className='tabsTitleContainer__img' src={`${BASEURL}/logos/${symb}/logo.svg`} alt='Company Logo'/>
             </div>
             <div className='tabsContainer'>

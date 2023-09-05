@@ -4,7 +4,11 @@ import "./StockDataList.scss"
 
 const StockDataList = () => {
 
-    const Stocks = ['aapl', 'amzn', 'nflx', 'bp', 'su', 'shop', 'tsla', 'msft'];
+    const Stocks = [
+            'aapl', 'amzn', 'bp', 'googl', 'mdb', 'msft', 'nflx', 'shop',
+                'su', 'team', 'tsla'
+
+                ];
     const [chosenStock, setchosenStock] = useState('');
 
     const handleStock =(e)=>{

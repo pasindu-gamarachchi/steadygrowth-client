@@ -2,7 +2,8 @@ import "./DataList.scss"
 
 const DataList = ({handleStock, symbDef}) => {
 
-    const Stocks = ['aapl', 'amzn', 'nflx', 'bp', 'su', 'shop', 'tsla', 'msft'];
+    const Stocks = ['aapl', 'amzn', 'bp', 'googl', 'mdb', 'msft', 'nflx', 'shop',
+            'su', 'team', 'tsla'];
 
     return (
         <div className="dataListContainer">
