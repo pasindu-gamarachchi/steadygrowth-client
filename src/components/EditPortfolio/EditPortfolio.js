@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddPortfolio from "../AddPortfolio/AddPortfolio";
 
+const BASEURL = process.env.REACT_APP_SERVER_URL; 
 
 const EditPortfolio = ({user, fetchData}) => {
 
@@ -14,7 +15,7 @@ const EditPortfolio = ({user, fetchData}) => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5050/api/portfolio?user_id=${user}`) // USE ENV VAR
+            .get(`${BASEURL}/api/portfolio?user_id=${user}`) // USE ENV VAR
             .then((resp) =>{
                 const newPortfolioData = resp.data;
                 setportfolioData(newPortfolioData);

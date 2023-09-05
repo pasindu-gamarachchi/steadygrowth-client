@@ -44,8 +44,8 @@ const StockDataList = () => {
             </div>
             <div className='stockDataListMainContainer__btnContainer'>
                 <button className='stockDataListMainContainer__btn'>
-                    <Link to={`/charts/${chosenStock}`} className='link'>
-                        Display
+                    <Link to={`/charts/${chosenStock}`} >
+                        <span className='link'>Display</span>
                     </Link>
                 </button>
                 <button onClick={handleAddtoWatchlist} className='stockDataListMainContainer__btn'>
