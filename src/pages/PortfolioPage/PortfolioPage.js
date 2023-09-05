@@ -44,10 +44,12 @@ const PortfolioPage = () => {
       if (failedAuth) {
         return (
           <main className="dashboard">
-            <p>You must be logged in to see this page.</p>
-            <p>
-              <Link to="/login">Log in</Link>
-            </p>
+            <div className='dashboard__textContainer'>
+              <p className='dashboard__text'>You must be logged in to see this page.</p>
+              <p>
+                <Link to="/login">Log in</Link>
+              </p>
+            </div>
           </main>
         );
       }

@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .chartContainer{
-    outline: 1px solid rebeccapurple;
+    // outline: 1px solid rebeccapurple;
 
     width: max(60vw, 18rem);
     height: 13.5rem;
@@ -11,7 +11,7 @@
     }
 
     @include desktop{
-        width: max(80vw, 68rem);
-        max-width: 68rem;
+        width: max(60vw, 60rem);
+        max-width: 70rem;
     }
 }

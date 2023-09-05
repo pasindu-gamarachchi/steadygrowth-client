@@ -3,7 +3,7 @@
 
 
 .header{
-    outline: 1px solid red;
+    // outline: 1px solid red;
     background-color: $background-color;
 
     padding-block: 1rem;
@@ -27,7 +27,7 @@
         display: flex;
         // gap: 1rem;
         align-items: center;
-        outline: 1px solid red;
+        // outline: 1px solid red;
         justify-content: space-around;
 
 
@@ -53,7 +53,7 @@
 
 .logo-container{
     
-    outline: 1px solid red;
+    // outline: 1px solid red;
     max-width: 5rem;
 
     @include tablet {
