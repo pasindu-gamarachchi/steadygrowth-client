@@ -1,0 +1,85 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.header{
+    // outline: 1px solid red;
+    background-color: $background-color;
+
+    padding-block: 1rem;
+    display: flex;
+    justify-content: space-between;
+    //align-items: baseline;
+    max-width: 100%;
+
+    @include tablet{
+        padding-inline: $tablet-margin;
+    }
+
+    @include desktop{
+        // @include desktop-margin;
+        padding-inline: $desktop-margin;
+
+
+    }
+
+    &__nav{
+        display: flex;
+        // gap: 1rem;
+        align-items: center;
+        // outline: 1px solid red;
+        justify-content: space-around;
+
+
+        &-text{
+            font-size: 0.75rem;
+            font-family: "Titillium Web";
+            padding-inline: 1rem;
+            //padding-bottom: 0.05rem;
+            color: $interactive-color;
+            text-decoration: none;
+            @include tablet{
+                font-size: 1rem;
+                font-family: "Titillium Web";
+                padding-inline: 1rem;
+            }
+
+            @include desktop{
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+.logo-container{
+    
+    // outline: 1px solid red;
+    max-width: 5rem;
+
+    @include tablet {
+        max-width: 10rem;
+
+    }
+
+    &__img{
+
+        max-width: 5rem;
+        object-fit: cover;
+
+        @include tablet {
+            object-fit: cover;
+            max-width: 10rem;
+        }
+    }
+
+}
+
+.image{
+    max-width: 5rem;
+    object-fit: cover;
+
+    @include tablet {
+        object-fit: cover;
+        max-width: 10rem;
+    }
+}

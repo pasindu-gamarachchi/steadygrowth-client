@@ -1,0 +1,37 @@
+//@use "./styles/partials/variables" as *;
+//@use "./styles/partials/typography" as *;
+//@use "./styles/partials/mixins" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Titillium Web";
+  min-height: calc(100vh - 40px);
+
+
+
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    text-decoration: none;
+  }
+  a {
+    text-decoration: none;
+  }
+}

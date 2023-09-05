@@ -1,0 +1,35 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+
+.leftContainer{
+    background-image: url('../../assets/images/growth.png'), linear-gradient(rgba(50,50,50,0.5),rgba(50,50,50,0.5));
+    box-shadow: 0 0 0.25rem 0.25rem white inset;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-position: center center;
+
+    @include tablet{
+        width: 50%;
+    }
+
+    &__header{
+
+        font-size: 2rem;
+        color: #32302F;
+        padding-left: 1rem;
+        padding-top: 0.8rem;
+
+        @include desktop{
+            font-size: 3rem;
+            color: #32302F;
+            padding-left: 1rem;
+            padding-top: 1rem;
+        }
+    }
+
+}

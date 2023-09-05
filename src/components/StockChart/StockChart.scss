@@ -1,0 +1,17 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.chartContainer{
+    // outline: 1px solid rebeccapurple;
+
+    width: max(60vw, 18rem);
+    height: 13.5rem;
+    @include tablet{
+        width: max(80vw, 40rem);
+    }
+
+    @include desktop{
+        width: max(60vw, 60rem);
+        max-width: 70rem;
+    }
+}
