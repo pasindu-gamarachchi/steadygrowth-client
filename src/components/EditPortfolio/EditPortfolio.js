@@ -3,6 +3,9 @@ import "./EditPortfolio.scss";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddPortfolio from "../AddPortfolio/AddPortfolio";
+import { mapper, invertedMapper } from "../../utils/utils";
+
+
 
 const BASEURL = process.env.REACT_APP_SERVER_URL; 
 
@@ -48,7 +51,7 @@ const EditPortfolio = ({user, fetchData}) => {
                     portfolioData.filter((elem) =>
                         elem.purchase_shares >0 ).map((elem)=>{
 
-                        return <AddPortfolio isEdit={true} symb={elem.stock_symbol} shares={elem.purchase_shares}
+                        return <AddPortfolio isEdit={true} symb={mapper[elem.stock_symbol]} shares={elem.purchase_shares}
                                     purchDateData={elem.purchase_date}
                                     price={elem.purchase_price}
                                     fetchData={fetchData} key={elem.id}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DataList from "../DataList/DataList";
 import FormInput from "../FormInput/FormInput";
-import { isInt, isValidStockDay, isIntgtZero } from "../../utils/utils";
+import { isInt, isValidStockDay, isIntgtZero, mapper, invertedMapper } from "../../utils/utils";
 import axios from 'axios';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./AddPortfolio.scss"
@@ -24,14 +24,15 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
 
     const handleSubmission = ()=>{
-        //console.log(isFormValid());
+        console.log(isFormValid());
         // console.log(BASEURL);
 
         if (isFormValid()){
             if (isEdit){
                 console.log(`isEdit`);
+                const symbmapped = invertedMapper[formValues.symb];
                 axios
-                .get(`${BASEURL}/api/chartdata/ondate/${formValues.symb}?ondate=${formValues.purchaseDate}`)
+                .get(`${BASEURL}/api/chartdata/ondate/${symbmapped}?ondate=${formValues.purchaseDate}`)
                 .then((resp) =>{
                     console.log(resp.data);
                     if (resp.data.length >0){
@@ -54,7 +55,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                    console.log(purchDateData);
                    const dataToUpdate = {
                     "user_id": user,
-                    "stock_id": formValues.symb, 
+                    "stock_id": invertedMapper[formValues.symb], 
                     "purchase_shares": formValues.shares,
                     "purchase_date": formValues.purchaseDate,
                     "purchase_price":  purchDateData[0].Close,
@@ -65,6 +66,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                    .then((resp) =>{
                     console.log(resp);
                     fetchData(true);
+                    triggerReload(true);
+
 
                    })
                    .catch((err)=>{
@@ -83,8 +86,9 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             })
             }
             else{
+                const invertedSym = invertedMapper[formValues.symb];
             axios
-            .get(`${BASEURL}/api/chartdata/ondate/${formValues.symb}?ondate=${formValues.purchaseDate}`)
+            .get(`${BASEURL}/api/chartdata/ondate/${invertedSym}?ondate=${formValues.purchaseDate}`)
             .then((resp) =>{
                 console.log(resp.data);
                 if (resp.data.length >0){
@@ -105,9 +109,11 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                 if(purchDateData){
                    console.log(`Putting data --> ${purchDateData}`);
                    console.log(purchDateData);
+                   const invertedSym = invertedMapper[formValues.symb];
+
                    const dataToInsert = {
                     "user_id": user,
-                    "stock_id":  formValues.symb, 
+                    "stock_id": invertedSym, 
                     "purchase_date": formValues.purchaseDate,
                     "purchase_price": purchDateData[0].Close,
                     "purchase_shares": formValues.shares
@@ -144,7 +150,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
         const dataToUpdate = {
             "user_id": user,
-            "stock_id": formValues.symb, 
+            "stock_id": invertedMapper[formValues.symb], 
             "purchase_shares": 0,
             "purchase_date": formValues.purchaseDate,
             "purchase_price":  formValues.price,

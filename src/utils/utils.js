@@ -20,7 +20,7 @@ const isIntgtZero = (num) =>{
 const isValidStockDay = (dateStr) =>{
     let day = new Date(dateStr).getUTCDay();
     // console.log(new Date(dateStr));
-    if (day===0 || day==6){
+    if (day===0 || day===6){
         return false;
     }
     const yesterday = new Date(Date.now() - 86400000)
@@ -50,10 +50,41 @@ const generatePorfCardData = (portfObj)=>{
 
 }
 
+const mapper = {
+    'aapl': 'Apple Inc.',
+    'amzn': 'Amazon.com, Inc.',
+    'bp': 'BP p.l.c.',
+    'googl': 'Alphabet Inc.',
+    'mdb': 'MongoDB, Inc.',
+    'msft': 'Microsoft Corporation',
+    'nflx': 'Netflix, Inc.',
+    'shop': 'Shopify Inc.',
+    'su': 'Suncor Energy  Inc.',
+    'team': 'Atlassian Corp Plc',
+    'tsla': 'Tesla, Inc.'
+
+}
+const invertedMapper = {
+    'Apple Inc.': 'aapl',
+    'Amazon.com, Inc.': 'amzn',
+    'BP p.l.c.': 'bp',
+    'Alphabet Inc.': 'googl',
+    'MongoDB, Inc.': 'mdb',
+    'Microsoft Corporation': 'msft',
+    'Netflix, Inc.': 'nflx',
+    'Shopify Inc.': 'shop',
+    'Suncor Energy  Inc.': 'su',
+    'Atlassian Corp Plc': 'team',
+    'Tesla, Inc.': 'tsla' 
+
+}
+
 
 module.exports = {
     isInt,
     isValidStockDay,
     isIntgtZero,
-    generatePorfCardData
+    generatePorfCardData,
+    mapper,
+    invertedMapper
 }

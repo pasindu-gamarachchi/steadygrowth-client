@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { isInt, isValidStockDay, isIntgtZero, mapper, invertedMapper } from "../../utils/utils";
+
 import "./StockDataList.scss"
 
 const StockDataList = () => {
@@ -14,7 +16,7 @@ const StockDataList = () => {
     const handleStock =(e)=>{
         e.preventDefault();
         console.log(`Stock selected : ${e.target.value}`); 
-        const newChosenStock = e.target.value;
+        const newChosenStock = invertedMapper[e.target.value];
         setchosenStock(newChosenStock);
         
         //for (const [key, value] of Object.entries(e.target)) {
@@ -36,7 +38,7 @@ const StockDataList = () => {
                     {
                         Stocks.map(
                             (elem) =>{
-                                return <option className='stockDataListMainContainer__opt' value={elem} key={elem} ></option>
+                                return <option className='stockDataListMainContainer__opt' value={mapper[elem]} key={elem} ></option>
                             }
                         )
                     }
