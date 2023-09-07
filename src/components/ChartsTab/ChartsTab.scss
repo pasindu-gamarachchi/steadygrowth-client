@@ -25,22 +25,47 @@
 
 .tabsTitleContainer{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     min-height: 2rem;
     padding-inline: 0.25rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+    align-items: center;
+    
+    @include tablet{
+        min-height: 3rem;
+    }
 
     &__img{
-        max-width: 2rem;
+        //max-width: 2rem;
         width: 2rem;
-        aspect-ratio: 4/3;
+        height: 2rem;
+        // aspect-ratio: 4/3;
         object-fit: contain;
         // outline: 1px solid red;
+        margin-left: 1rem;
+        display: block;
+        //max-width: 2rem;
+        // max-height: 90px;
+        //width: auto;
+        //height: auto;
+        //max-height: 8/3 rem;
+        // outline:  1px solid red;
+
+        @include tablet{
+            max-width: 4rem;
+
+        }
 
     }
     &__header{
-        // outline: 1px solid red;
+        //outline: 1px solid red;
+        font-size: 1rem;
+        margin-left: 1rem;
+
+        @include tablet{
+            font-size: 1.5rem;
+        }
     }
 
 }

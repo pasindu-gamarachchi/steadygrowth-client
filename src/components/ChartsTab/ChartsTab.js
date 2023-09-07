@@ -73,8 +73,8 @@ const ChartsTab = ({symb}) => {
     return (
         <div>
             <div className='tabsTitleContainer'>
-                <h2 className='tabsTitleContainer__header'>{mapper[symb]} </h2>
                 <img className='tabsTitleContainer__img' src={`${BASEURL}/logos/${symb}/logo.svg`} alt='Company Logo'/>
+                <h2 className='tabsTitleContainer__header'>{mapper[symb]} </h2>
             </div>
             <div className='tabsContainer'>
                 <div onClick={() =>toggleTab("3mo")} className={toggleState==='3mo' ? "tabsContainer__tab tabsContainer__tab--active": "tabsContainer__tab"}>3 Month</div>
