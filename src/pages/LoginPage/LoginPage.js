@@ -23,7 +23,7 @@ const LoginPage = () => {
                 navigate('/charts');
             })
             .catch((error) => {
-                setError(error.response.data);
+                setError(error.response.data); // TODO: Fix error message server side.
             });
     };
 
