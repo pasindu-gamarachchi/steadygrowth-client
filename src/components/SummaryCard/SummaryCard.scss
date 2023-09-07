@@ -1,5 +1,8 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+$column-color: #A8BAC2 ; 
+
 .summaryCard{
     display: flex;
     gap: 5%;
@@ -19,7 +22,7 @@
             width: 25%;
             // outline: 1px solid blue;
             background-color: #333;
-            color: gold;
+            color:  $column-color;
             font-weight: 700;
             font-size: 0.875rem;
             text-transform: uppercase;
@@ -44,7 +47,7 @@
             min-width: 20%;
             //outline: 1px solid blue;
             background-color: #333;
-            color: gold;
+            color: $column-color;
             font-weight: 700;
             font-size: 0.875rem;
             text-transform: uppercase;

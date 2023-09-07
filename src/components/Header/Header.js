@@ -4,11 +4,12 @@ import sglogo from "../../assets/logos/steadygrowth-logo.png"
 
 
 
-const Header = () => {
+const Header = ({isLoggedIn, setisLoggedIn}) => {
 
     const handleLogout = ()=>{
         console.log('Logged out')
         sessionStorage.removeItem("token");
+        setisLoggedIn(false);
 
     }
     return (
@@ -25,11 +26,17 @@ const Header = () => {
                 <Link to="/portfolio">
                     <h2 className='header__nav-text'>Portfolio</h2>
                 </Link>
+                {isLoggedIn?
                 <div onClick={handleLogout}>
                     <Link to="/">
                         <h2 className='header__nav-text'>Log out</h2>
                     </Link>
-                </div>
+                </div>:
+
+                    <Link to="/login">
+                        <h2 className='header__nav-text'>Log In</h2>
+                    </Link>
+                }
             </nav>
         </div>
     );
