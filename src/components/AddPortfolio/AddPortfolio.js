@@ -95,6 +95,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                     console.log(`Received data ${resp.data}`);
                     console.log(resp.data);
                     resp.isPutData = true;
+                    const newFormValues = {...formValues}
+                    // newFormValues.price 
                     
                     return {...resp.data, isPutData:true};
                 }
@@ -183,7 +185,30 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
         }
 
         if (e.target.name==="purchaseDate"){
-            newValidation[e.target.name] = isValidStockDay(e.target.value)
+            newValidation[e.target.name] = isValidStockDay(e.target.value);
+            const invertedSym = invertedMapper[formValues.symb];
+            if (isValidStockDay(e.target.value)){
+            axios
+            .get(`${BASEURL}/api/chartdata/ondate/${invertedSym}?ondate=${formValues.purchaseDate}`)
+            .then((resp) =>{
+                console.log(resp.data);
+                if (resp.data.length >0){
+                    //console.log(`Received data ${resp.data}`);
+                    // console.log(resp.data);
+                    resp.isPutData = true;
+                    const newFormValues = {...formValues}
+                    newFormValues.price = resp.data[0].Close;
+                    setformValues(newFormValues);
+                    // return {...resp.data, isPutData:true};
+                }
+                //else{
+                //    const newValidation = { ...isValid };
+                //    newValidation.purchaseDate =false;
+                //    setisValid(newValidation);
+
+                // }
+            })
+            }
             //let day = new Date(e.target.value).getUTCDay();
             //if (day===0 || day==6){
             //    newValidation[e.target.name] = false;

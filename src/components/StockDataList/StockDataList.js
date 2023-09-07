@@ -10,7 +10,7 @@ const StockDataList = () => {
             'aapl', 'amzn', 'bp', 'googl', 'mdb', 'msft', 'nflx', 'shop',
                 'su', 'team', 'tsla'
 
-                ];
+                ]; /// TODO : Get from mapper
     const [chosenStock, setchosenStock] = useState('');
 
     const handleStock =(e)=>{
