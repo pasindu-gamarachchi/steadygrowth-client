@@ -30,10 +30,12 @@ const isValidStockDay = (dateStr) =>{
 const generatePorfCardData = (portfObj)=>{
     const summData =  []
     for (let i=0; i< portfObj.length-1; i++){
-        const cval = portfObj[i].stockSumm[
+        let cval = portfObj[i].stockSumm[
             portfObj[i].stockSumm.length-1
         ].stockValue;
-        const pval = portfObj[i].stockSumm[0].stockValue;
+        cval = Number(cval).toFixed(2)
+        let pval = portfObj[i].stockSumm[0].stockValue;
+        pval = Number(pval).toFixed(2);
         const profval = Number(cval - pval).toFixed(2)
         const portfSumm = {
             purchaseDate: portfObj[i].stockSumm[0].date,
