@@ -85,63 +85,68 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
             })
             }
-            else{
+            else{ /// ADD DATA CONDITION
                 const invertedSym = invertedMapper[formValues.symb];
-            axios
-            .get(`${BASEURL}/api/chartdata/ondate/${invertedSym}?ondate=${formValues.purchaseDate}`)
-            .then((resp) =>{
-                console.log(resp.data);
-                if (resp.data.length >0){
-                    console.log(`Received data ${resp.data}`);
+                axios
+                .get(`${BASEURL}/api/chartdata/ondate/${invertedSym}?ondate=${formValues.purchaseDate}`)
+                .then((resp) =>{
                     console.log(resp.data);
-                    resp.isPutData = true;
-                    const newFormValues = {...formValues}
-                    // newFormValues.price 
-                    
-                    return {...resp.data, isPutData:true};
-                }
-                else{
-                    const newValidation = { ...isValid };
-                    newValidation.purchaseDate =false;
-                    setisValid(newValidation);
+                    if (resp.data.length >0){
+                        console.log(`Received data ${resp.data}`);
+                        console.log(resp.data);
+                        resp.isPutData = true;
+                        const newFormValues = {...formValues}
+                        // newFormValues.price 
+                        
+                        return {...resp.data, isPutData:true};
+                    }
+                    else{
+                        const newValidation = { ...isValid };
+                        newValidation.purchaseDate =false;
+                        setisValid(newValidation);
 
-                }
-            })
-            .then((purchDateData)=>{ //TODO if edit update existing data do not insert
-                if(purchDateData){
-                   console.log(`Putting data --> ${purchDateData}`);
-                   console.log(purchDateData);
-                   const invertedSym = invertedMapper[formValues.symb];
+                    }
+                })
+                .then((purchDateData)=>{ //TODO if edit update existing data do not insert
+                    if(purchDateData){
+                    console.log(`Putting data --> ${purchDateData}`);
+                    console.log(purchDateData);
+                    const invertedSym = invertedMapper[formValues.symb];
 
-                   const dataToInsert = {
-                    "user_id": user,
-                    "stock_id": invertedSym, 
-                    "purchase_date": formValues.purchaseDate,
-                    "purchase_price": purchDateData[0].Close,
-                    "purchase_shares": formValues.shares
-                  }
-                  console.log(dataToInsert);
-                   axios.put(`${BASEURL}/api/portfolio`, dataToInsert)
-                   .then((resp) =>{
-                    console.log(resp);
-                    // console.log('Navigating to portfolio')
-                    fetchData(true);
+                    const dataToInsert = {
+                        "user_id": user,
+                        "stock_id": invertedSym, 
+                        "purchase_date": formValues.purchaseDate,
+                        "purchase_price": purchDateData[0].Close,
+                        "purchase_shares": formValues.shares
+                    }
+                    console.log(dataToInsert);
+                    axios.put(`${BASEURL}/api/portfolio`, dataToInsert)
+                    .then((resp) =>{
+                        console.log(resp);
+                        // console.log('Navigating to portfolio')
+                        fetchData(true);
+                        /// RESET FORM
+                        
+                        const defaultFormValues = {symb: "", shares: 0 ,
+                                    purchaseDate:  "", price:  0.00}
+                        setformValues(defaultFormValues);
 
-                   })
-                   .catch((err)=>{
+                    })
+                    .catch((err)=>{
+                        console.error(err);
+                    })
+                    }
+                })
+                .catch((err)=>{
                     console.error(err);
-                   })
                 }
-            })
-            .catch((err)=>{
-                console.error(err);
-            }
-            )
-            .finally((resp)=>{
-                //console.log('Navigating to portfolio')
-                //avigate("/portfolio");
+                )
+                .finally((resp)=>{
+                    //console.log('Navigating to portfolio')
+                    //avigate("/portfolio");
 
-            })
+                })
             }
         }
 
@@ -184,12 +189,14 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             newValidation[e.target.name] = isIntgtZero(e.target.value);
         }
 
-        if (e.target.name==="purchaseDate"){
+        if (e.target.name==="purchaseDate"){ /// TODO : AVOID REPEATING THIS CHECK
             newValidation[e.target.name] = isValidStockDay(e.target.value);
+            /*
             const invertedSym = invertedMapper[formValues.symb];
-            if (isValidStockDay(e.target.value)){
+            console.log(`Purchase Date : ${e.target.value}`);
+            if (e.target.value!=="" && isValidStockDay(e.target.value)){
             axios
-            .get(`${BASEURL}/api/chartdata/ondate/${invertedSym}?ondate=${formValues.purchaseDate}`)
+            .get(`${BASEURL}/api/chartdata/ondate/${invertedSym}?ondate=${e.target.value}`)
             .then((resp) =>{
                 console.log(resp.data);
                 if (resp.data.length >0){
@@ -208,12 +215,16 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
                 // }
             })
-            }
+            .catch((err)=>{
+                console.error(`Error : ${err}`);
+            })
+            }*/
             //let day = new Date(e.target.value).getUTCDay();
             //if (day===0 || day==6){
             //    newValidation[e.target.name] = false;
             // }
             // console.log(`day ---> ${day}`);
+            
         }
         setisValid(newValidation);
 
