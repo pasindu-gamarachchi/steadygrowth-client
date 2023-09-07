@@ -18,14 +18,14 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
     const [allPortData, setallPortData] = useState([]);
     const [isEmptyPorf, setisEmptyPortf] = useState(true);
     //const []
-    console.log(`Porfolio Disp loaded`)
+    //console.log(`Porfolio Disp loaded`)
     useEffect(() => {
         axios
           .get(`${BASEURL}/api/portfolioCalcs?user_id=${user_id}`)
           .then((response) => {
             //console.log(response.data[2].vals);
-            console.log('made call for port data')
-            console.log(response.data);
+            //console.log('made call for port data')
+            //console.log(response.data);
             if (response.data.length >0){
               setPortData(response.data[response.data.length-1].vals);
               setallPortData(response.data);
@@ -44,7 +44,7 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
             axios.get(`${BASEURL}/api/portfolioCalcs/spend?user_id=${user_id}`)
                 .then((response)=>{
                   setspendData(response.data);
-                  console.log(response.data);
+                  // console.log(response.data);
                   setisLoading(false);
                   if (response.data.length >1){
                     setisEmptyPortf(false);
@@ -60,7 +60,7 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
           .catch((error) => {
             console.log(error);
           });
-        console.log("Portfolio Data loaded.");
+        //console.log("Portfolio Data loaded.");
         fetchData(false);
 
     }, [isDataLoadNeeded])

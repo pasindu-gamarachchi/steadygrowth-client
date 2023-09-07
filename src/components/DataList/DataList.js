@@ -1,4 +1,6 @@
 import "./DataList.scss"
+import { mapper, invertedMapper } from "../../utils/utils";
+
 
 const DataList = ({handleStock, symbDef}) => {
 
@@ -13,7 +15,7 @@ const DataList = ({handleStock, symbDef}) => {
                 {
                     Stocks.map(
                         (elem) =>{
-                            return <option value={elem} ></option>
+                            return <option value={mapper[elem]} ></option>
                         }
                     )
                 }
