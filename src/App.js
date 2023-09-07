@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage isLoggedIn ={isLoggedIn} />}/>
           <Route path="/signup" element={<SignupPage/>}/>
-          <Route path="/login"   element={<LoginPage isLoggedIn ={isLoggedIn}/>}/>
+          <Route path="/login"   element={<LoginPage isLoggedIn ={isLoggedIn} setisLoggedIn={setisLoggedIn}/>}/>
           <Route path="/charts" element={<ChartsPage />} />
           <Route path="/charts/:symb" element={<ChartsPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />

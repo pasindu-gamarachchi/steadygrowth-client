@@ -7,7 +7,7 @@ import SignUpInput from "../../components/SignUpInput/SignUpInput";
 const BASEURL = process.env.REACT_APP_SERVER_URL; // || "http://localhost:5050"; ///TODO : FIX THIS
 
 
-const LoginPage = () => {
+const LoginPage = ({setisLoggedIn}) => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -20,6 +20,7 @@ const LoginPage = () => {
         })
             .then((response) => {
                 sessionStorage.setItem("token", response.data.token);
+                setisLoggedIn(true);
                 navigate('/charts');
             })
             .catch((error) => {
