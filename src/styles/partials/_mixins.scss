@@ -70,3 +70,8 @@
     line-height: 2rem;
   }
 }
+
+
+@mixin outline-for-testing($col){
+  outline: 1px solid $col;
+}

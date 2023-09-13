@@ -250,7 +250,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             <FormInput name={"price"} value={formValues.price} valid={isValid.price} handleChange={handleChange}/>
             <div className="calendarContainer">
                 <label htmlFor="purchaseDate" className="calendarContainer__label">Purchase Date</label>
-                <input className='dataListContainer__inp' type="date" name="purchaseDate" onChange={handleChange} value={purchDateData}/>
+                <input className='calendarContainer__inp' type="date" name="purchaseDate" onChange={handleChange} value={purchDateData}/>
             </div>
             {isEdit? 
                 <div className="btnContainer--modforedit">
