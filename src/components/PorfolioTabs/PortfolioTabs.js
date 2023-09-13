@@ -12,7 +12,7 @@ const PortfolioTabs = ({fetchData, user_id}) => {
     }
 
     return (
-        <div>
+        <div className='modifyPortfolioContainer'>
             <div className='updtabsContainer'>
                 <div onClick={() =>toggleTab("add")} className={portfolioAction==='add' ? "updtabsContainer__tab updtabsContainer__tab--active": "updtabsContainer__tab"}>ADD</div>
                 <div onClick={() =>toggleTab("edit")} className={portfolioAction==='edit' ? "updtabsContainer__tab updtabsContainer__tab--active": "updtabsContainer__tab"}>EDIT</div>

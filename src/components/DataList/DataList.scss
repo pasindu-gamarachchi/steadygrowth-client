@@ -8,7 +8,7 @@
     // outline: 1px solid red;
     margin-block:1rem;
     height: 1.25rem;
-    @include outline-for-testing(green);
+    // @include outline-for-testing(green);
 
     @include tablet{
         // justify-content: s;
@@ -24,7 +24,7 @@
         @include tablet{
             // margin-right:1rem;
             min-width: none;
-            @include outline-for-testing(brown);
+            // @include outline-for-testing(brown);
             width:  $add-portfolio-inp-width;
             height: 1.5rem;
             font-size:  $add-portfolio-font-size;
@@ -42,7 +42,7 @@
         padding-left: 5%;
         text-align: center;
         //color: steelblue;
-        @include outline-for-testing(steelblue);
+        // @include outline-for-testing(steelblue);
         @include tablet{
             width: 40%;
             min-width: 40%;

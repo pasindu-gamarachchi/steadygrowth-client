@@ -3,19 +3,23 @@
 
 .addPortfolioContainer{
    // outline: 1px solid blue;
-    margin-block: 1rem;
-    margin-inline: 1rem;
+    @include outline-for-testing(blue);
+    // margin-block: 1rem;
+    margin-bottom: 1rem;
+    //margin-inline: 1rem;
     max-width: 100%;
+
     @include tablet{
         max-width: 40rem;
-        box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
+        // box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
         margin-top: 0rem;
 
         
     }
 
     &__heading{
-        margin-block: 1rem;
+        // margin-block: 1rem;
+        margin-bottom: 1rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -28,7 +32,8 @@
     display: flex;
     justify-content: space-between;
     padding-inline: 0.5rem;
-    outline: 1px solid rebeccapurple;
+    // outline: 1px solid rebeccapurple;
+    // @include outline-for-testing(rebeccapurple);
     margin-block:1rem;
     height: 1.25rem;
 
@@ -41,7 +46,7 @@
     }
 
     &__label{
-        outline: 1px solid red;
+        //outline: 1px solid red;
         margin-right: 0.5rem;
         min-width: 20%;
         @include tablet{
@@ -79,11 +84,12 @@
 .btnContainer{
     display: flex;
     justify-content: space-between;
-    outline: 1px solid red;
+    // outline: 1px solid red;
     // width: 50%;
     align-items: center;
     @include tablet{
         // width: 50%;
+        @include outline-for-testing(red);
         justify-content: center;
     }
 
@@ -119,7 +125,7 @@
     
         @include tablet{
             height: 1.75rem;
-            width: 15%;
+            // width: 15%;
             font-size: 1rem;
 
     
