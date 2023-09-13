@@ -5,6 +5,9 @@ import { isInt, isValidStockDay, isIntgtZero, mapper, invertedMapper } from "../
 import axios from 'axios';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./AddPortfolio.scss"
+import confirmIcon from "../../assets/icons/confirm.svg"
+import cancelIcon from "../../assets/icons/cancel.svg"
+import deleteIcon from "../../assets/icons/trash.svg"
 
 
 const BASEURL = process.env.REACT_APP_SERVER_URL || "http://localhost:5050"; ///TODO : FIX THIS user={user_id}
@@ -243,7 +246,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
     }
     return (
-        <div className="addPortfolioContainer">
+        <div className={isEdit?"addPortfolioContainer--modforedit":"addPortfolioContainer"}>
             {!isEdit  && <h2 className="addPortfolioContainer__heading">Add to your portfolio</h2>}
             <DataList handleStock={handleChange} symbDef={symb}/>
             <FormInput name={"shares"} value={formValues.shares} valid={isValid.shares} handleChange={handleChange}/>
@@ -254,14 +257,17 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             </div>
             {isEdit? 
                 <div className="btnContainer--modforedit">
-                    <button onClick={handleSubmission} className="btnContainer__btn--modforedit">
-                        SAVE
+                    <button onClick={handleSubmission}>
+                        <img src={confirmIcon} className="btnContainer__img"/>
                     </button>
-                    <button className="btnContainer__btn--modforedit">
-                        CANCEL
+                    <button>
+                        <img src={cancelIcon} className="btnContainer__img"/>
+
                     </button>
                     
-                    <button onClick={handleDelete} className="btnContainer__btn--modforedit" >DELETE</button>
+                    <button onClick={handleDelete}>
+                       <img src={deleteIcon} className="btnContainer__img"/>
+                    </button>
                     
                 </div>:
                     <div className="btnContainer">

@@ -36,7 +36,7 @@
     &__inp{
         width: 50%;
         background-color: #ccc;
-        border-radius: 0.5rem;
+        border-radius: 1.25rem;
         border: 1px solid  #ccc;
         // justify-content: center;
         padding-left: 5%;
@@ -47,7 +47,7 @@
             width: 40%;
             min-width: 40%;
             height: 1.5rem;
-            font-size:1rem;
+            font-size: $add-portfolio-font-size;
 
         }
         /*

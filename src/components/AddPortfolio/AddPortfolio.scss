@@ -3,11 +3,16 @@
 
 .addPortfolioContainer{
    // outline: 1px solid blue;
-    @include outline-for-testing(blue);
+    //@include outline-for-testing(blue);
     // margin-block: 1rem;
     margin-bottom: 1rem;
     //margin-inline: 1rem;
     max-width: 100%;
+
+    &--modforedit{
+        border-bottom: 1px solid #ddd;
+
+    }
 
     @include tablet{
         max-width: 40rem;
@@ -62,7 +67,7 @@
     &__inp{
         width: 50%;
         background-color: #ccc;
-        border-radius: 0.5rem;
+        border-radius: 1.25rem;
         border: 1px solid  #ccc;
         // justify-content: center;
         padding-left: 5%;
@@ -86,23 +91,29 @@
     justify-content: space-between;
     // outline: 1px solid red;
     // width: 50%;
+
     align-items: center;
     @include tablet{
         // width: 50%;
-        @include outline-for-testing(red);
+        //@include outline-for-testing(red);
         justify-content: center;
     }
 
     &--modforedit{
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         // outline: 1px solid red;
+        //@include outline-for-testing(red); 
+        margin-bottom: 1rem;
         // width: 50%;
         align-items: center;
+        padding-right: 0.5rem;
         @include tablet{
             // width: 50%;
-            justify-content: center;
-            padding-inline: 13%;
+            justify-content: flex-end;
+            //padding-inline: 13%;
+            padding-right: 1.5rem;
+
         }
     }
 
@@ -171,6 +182,10 @@
             border: 1px solid grey;
     
         }
+    }
+
+    &__img{
+        max-width: 2rem;
     }
 }
 
