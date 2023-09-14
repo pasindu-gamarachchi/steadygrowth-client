@@ -5,6 +5,9 @@
 .header{
     // outline: 1px solid red;
     background-color: $background-color;
+    background-color: $col-4;
+    background: linear-gradient($col-4 0%, rgba(229, 241, 241, 0) 100%) 0% 0% / 100% 248px no-repeat;
+    background-repeat: no-repeat;
 
     padding-block: 1rem;
     display: flex;

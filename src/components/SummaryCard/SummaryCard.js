@@ -26,7 +26,7 @@ const SummaryCard = ({statsObj, isColName}) => {
     }
     else{
         return (
-            <div className='summaryCard'>
+            <div className='summaryCard--col'>
                 <div className='summaryCard__stat--info'>
                     Stat
                 </div>

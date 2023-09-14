@@ -6,6 +6,9 @@
     justify-content: flex-end;
     // gap:1rem;
     // outline: 1px solid red;
+    //@include outline-for-testing(red);
+    margin-top: 1rem;
+
 
 
     &__tab{
@@ -28,9 +31,10 @@
     justify-content: flex-start;
     min-height: 2rem;
     padding-inline: 0.25rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     align-items: center;
+    //@include outline-for-testing(red);
     
     @include tablet{
         min-height: 3rem;

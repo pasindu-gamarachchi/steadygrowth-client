@@ -1,7 +1,7 @@
 $tablet-width: 48rem;
 $desktop-width: 80rem;
 
-
+$mobile-margin:1rem;
 $tablet-margin: 1.5rem;
 $desktop-margin: 2.5rem;
 
@@ -26,7 +26,7 @@ $tabs-active: rgba(70, 130, 180) ;
 
 $chart-color-main: #5298bc;
 
-$col-1: #E4E9D3 ;
+$col-1: rgb(228, 233, 211); // #E4E9D3 ;
 $col-2: #F9F2EF ;
 $col-3: #FBEEE6 ;
 $col-4: rgb(236,242,246) ; //   #ECF2F6;
