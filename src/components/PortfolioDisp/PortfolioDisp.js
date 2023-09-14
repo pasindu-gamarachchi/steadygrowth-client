@@ -75,7 +75,7 @@ const PortfolioDisp = ({isDataLoadNeeded, fetchData, user_id}) => {
     }
 
     return (
-        <div>
+        <div className='portfolioDispContainer'>
             <StockChart StockChart label={"3mo"} chartData={portData} symb={"Portfolio"} spendData={spendData}/>
             <div>
                <PortfolioTable portfolioData={allPortData}/>
