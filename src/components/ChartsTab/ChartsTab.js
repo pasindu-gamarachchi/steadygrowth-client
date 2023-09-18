@@ -46,6 +46,7 @@ const ChartsTab = ({symb}) => {
                 setoneYearData(newChartData);
                 return axios
                     .get(`${BASEURL}/api/chartdata/${symb}?from=2023-06-15&to=2023-09-16`);
+
             })
             .then((resp)=>{
                 const newChartData2 = resp.data;
