@@ -11,7 +11,7 @@
         // justify-content: s;
         align-items: center;
         height: 1.75rem;
-        justify-content: center;
+        justify-content: space-around;
     }
 }
 
@@ -26,7 +26,11 @@
         // outline: 1px solid red;
         min-width: 20%;
         @include tablet{
-            margin-right:1rem;
+            // margin-right:1rem;
+            min-width: 30%;
+            width:  $add-portfolio-inp-width;
+            height: 1.5rem;
+            font-size:  $add-portfolio-font-size;
 
         }
 
@@ -50,15 +54,11 @@
         // width: 100%;
         // outline: none;
         @include tablet{
-            width: 30%;
+            width:  $add-portfolio-inp-width;
             height: 1.5rem;
-            font-size:1.25rem;
+            font-size:  $add-portfolio-font-size;
             // outline: 1px solid blue;
 
-
-        }
-        @include desktop{
-            width: 25%;
 
         }
 

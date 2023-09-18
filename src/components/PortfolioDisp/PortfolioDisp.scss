@@ -1,0 +1,8 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.portfolioDispContainer{
+    margin-top: 1rem;
+    //@include outline-for-testing(blue);
+}

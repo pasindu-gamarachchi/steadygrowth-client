@@ -1,7 +1,9 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-$column-color: #A8BAC2 ; 
+$summary-info-background: gray;
+$summary-info-background: $col-6;
+
 
 .summaryCard{
     display: flex;
@@ -10,18 +12,36 @@ $column-color: #A8BAC2 ;
     margin-inline:1rem;
     //outline: 1px solid red;
 
+    background-color: $summary-info-background;
+    border-radius: 1rem;
+    border: 1px solid $summary-info-background;
+    color: #333;
+
+    &--col{
+        background-color: #333;
+        border-radius: 1rem;
+        border: 1px solid #333;
+        display: flex;
+        gap: 5%;
+        margin-block: 0.5rem;
+        margin-inline:1rem;
+
+    }
+
     &__stat{
         min-width: 25%;
         width: 25%;
         //outline: 1px solid blue;
         text-align: center;
         //outline: 1px solid blue;
+        text-transform: capitalize;
+
 
         &--info{
             min-width: 25%;
             width: 25%;
-            // outline: 1px solid blue;
-            background-color: #333;
+            //outline: 1px solid blue;
+            //background-color: #333;
             color:  $column-color;
             font-weight: 700;
             font-size: 0.875rem;
@@ -46,7 +66,7 @@ $column-color: #A8BAC2 ;
             width: 20%;
             min-width: 20%;
             //outline: 1px solid blue;
-            background-color: #333;
+            //background-color: #333;
             color: $column-color;
             font-weight: 700;
             font-size: 0.875rem;

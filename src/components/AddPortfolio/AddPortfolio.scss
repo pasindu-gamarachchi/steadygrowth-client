@@ -2,12 +2,29 @@
 @use "../../styles/partials/mixins" as *;
 
 .addPortfolioContainer{
-    // outline: 1px solid red;
-    margin-block: 1rem;
-    margin-inline: 1rem;
+   // outline: 1px solid blue;
+    //@include outline-for-testing(blue);
+    // margin-block: 1rem;
+    margin-bottom: 1rem;
+    //margin-inline: 1rem;
+    max-width: 100%;
+
+    &--modforedit{
+        border-bottom: 1px solid #ddd;
+
+    }
+
+    @include tablet{
+        max-width: 40rem;
+        // box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
+        margin-top: 0rem;
+
+        
+    }
 
     &__heading{
-        margin-block: 1rem;
+        // margin-block: 1rem;
+        margin-bottom: 1rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -20,7 +37,8 @@
     display: flex;
     justify-content: space-between;
     padding-inline: 0.5rem;
-    // outline: 1px solid red;
+    // outline: 1px solid rebeccapurple;
+    // @include outline-for-testing(rebeccapurple);
     margin-block:1rem;
     height: 1.25rem;
 
@@ -28,15 +46,20 @@
         // justify-content: s;
         align-items: center;
         height: 1.75rem;
-        justify-content: center;
+        justify-content: space-around;
+
     }
 
     &__label{
-        // outline: 1px solid red;
+        //outline: 1px solid red;
         margin-right: 0.5rem;
         min-width: 20%;
         @include tablet{
-            margin-right:1rem;
+            margin-right:0;
+            
+            min-width: $add-portfolio-inp-width;
+            width: $add-portfolio-inp-width;
+
 
         }
     }
@@ -44,7 +67,7 @@
     &__inp{
         width: 50%;
         background-color: #ccc;
-        border-radius: 0.5rem;
+        border-radius: 1.25rem;
         border: 1px solid  #ccc;
         // justify-content: center;
         padding-left: 5%;
@@ -52,13 +75,9 @@
         //color: steelblue;
 
         @include tablet{
-            width: 30%;
+            width: $add-portfolio-inp-width;
             height: 1.5rem;
-            font-size:1.25rem;
-
-        }
-        @include desktop{
-            width: 25%;
+            font-size: $add-portfolio-font-size;
 
         }
 
@@ -72,22 +91,29 @@
     justify-content: space-between;
     // outline: 1px solid red;
     // width: 50%;
+
     align-items: center;
     @include tablet{
         // width: 50%;
+        //@include outline-for-testing(red);
         justify-content: center;
     }
 
     &--modforedit{
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         // outline: 1px solid red;
+        //@include outline-for-testing(red); 
+        margin-bottom: 1rem;
         // width: 50%;
         align-items: center;
+        padding-right: 0.5rem;
         @include tablet{
             // width: 50%;
-            justify-content: center;
-            padding-inline: 13%;
+            justify-content: flex-end;
+            //padding-inline: 13%;
+            padding-right: 1.5rem;
+
         }
     }
 
@@ -110,7 +136,7 @@
     
         @include tablet{
             height: 1.75rem;
-            width: 15%;
+            // width: 15%;
             font-size: 1rem;
 
     
@@ -156,6 +182,17 @@
             border: 1px solid grey;
     
         }
+    }
+
+    &__img{
+        max-width: 2rem;
+    }
+
+    &__edit{
+        background-color: transparent;
+        border: none;
+        //border: 0px 5px 0px 0px solid steelblue; // 1px solid $interactive-color;
+        //border-radius: 0.5rem;
     }
 }
 
