@@ -187,5 +187,12 @@
     &__img{
         max-width: 2rem;
     }
+
+    &__edit{
+        background-color: transparent;
+        border: none;
+        //border: 0px 5px 0px 0px solid steelblue; // 1px solid $interactive-color;
+        //border-radius: 0.5rem;
+    }
 }
 

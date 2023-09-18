@@ -257,15 +257,15 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             </div>
             {isEdit? 
                 <div className="btnContainer--modforedit">
-                    <button onClick={handleSubmission}>
+                    <button onClick={handleSubmission} className="btnContainer__edit">
                         <img src={confirmIcon} className="btnContainer__img"/>
                     </button>
-                    <button>
+                    <button className="btnContainer__edit">
                         <img src={cancelIcon} className="btnContainer__img"/>
 
                     </button>
                     
-                    <button onClick={handleDelete}>
+                    <button onClick={handleDelete} className="btnContainer__edit">
                        <img src={deleteIcon} className="btnContainer__img"/>
                     </button>
                     

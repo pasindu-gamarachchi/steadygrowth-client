@@ -40,18 +40,18 @@ const ChartsTab = ({symb}) => {
 
     useEffect(() => {
         axios
-            .get(`${BASEURL}/api/chartdata/${symb}?from=2022-09-03&to=2023-09-04`)
+            .get(`${BASEURL}/api/chartdata/${symb}?from=2022-09-16&to=2023-09-16`)
             .then((resp) =>{
                 const newChartData = resp.data;
                 setoneYearData(newChartData);
                 return axios
-                    .get(`${BASEURL}/api/chartdata/${symb}?from=2023-06-04&to=2023-09-04`);
+                    .get(`${BASEURL}/api/chartdata/${symb}?from=2023-06-15&to=2023-09-16`);
             })
             .then((resp)=>{
                 const newChartData2 = resp.data;
                 setthreeMonthData(newChartData2);
                 return axios
-                    .get(`${BASEURL}/api/chartdata/${symb}?from=2020-09-03&to=2023-09-04`);
+                    .get(`${BASEURL}/api/chartdata/${symb}?from=2020-09-16&to=2023-09-16`);
             }).then((resp)=>{
                 setthreeYearData(resp.data);
                 setisLoading(false);
