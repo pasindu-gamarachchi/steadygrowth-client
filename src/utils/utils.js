@@ -80,6 +80,21 @@ const invertedMapper = {
     'Tesla, Inc.': 'tsla' 
 
 }
+const symbolSet = new Set(
+    [
+        'Apple Inc.',
+        'Amazon.com, Inc.',
+        'BP p.l.c.',
+        'Alphabet Inc.',
+        'MongoDB, Inc.',
+        'Microsoft Corporation',
+        'Netflix, Inc.',
+        'Shopify Inc.',
+        'Suncor Energy  Inc.',
+        'Atlassian Corp Plc',
+        'Tesla, Inc.' 
+    ]
+)
 
 
 module.exports = {
@@ -88,5 +103,6 @@ module.exports = {
     isIntgtZero,
     generatePorfCardData,
     mapper,
-    invertedMapper
+    invertedMapper,
+    symbolSet
 }
