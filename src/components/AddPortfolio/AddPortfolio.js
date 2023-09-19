@@ -14,9 +14,7 @@ const BASEURL = process.env.REACT_APP_SERVER_URL || "http://localhost:5050"; ///
 
 const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, portId, triggerReload, user}) => {
 
-    //console.log(`Received : ${isEdit}, ${symb}, ${shares}, ${purchDateData}, ${price}, ${portId}`);
-    // console.log(`Received shares : ${shares}`);
-    // console.log(`User : ${user}`);
+
     const [formValues, setformValues] = useState({symb: symb || "", shares: shares || 0 ,
          purchaseDate: purchDateData ||  "", price: price || 0.00})
     const [isValid, setisValid] = useState({shares: true, price: true, purchaseDate:false});
@@ -54,8 +52,6 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             })
             .then((purchDateData)=>{ //TODO if edit update existing data do not insert
                 if(purchDateData){
-                   console.log(`Putting data --> ${purchDateData}`);
-                   console.log(purchDateData);
                    const dataToUpdate = {
                     "user_id": user,
                     "stock_id": invertedMapper[formValues.symb], 
@@ -112,8 +108,6 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                 })
                 .then((purchDateData)=>{ //TODO if edit update existing data do not insert
                     if(purchDateData){
-                    console.log(`Putting data --> ${purchDateData}`);
-                    console.log(purchDateData);
                     const invertedSym = invertedMapper[formValues.symb];
 
                     const dataToInsert = {

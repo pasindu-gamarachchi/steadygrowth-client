@@ -50,12 +50,11 @@
             font-size: $add-portfolio-font-size;
 
         }
-        /*
-        @include desktop{
-            width: 25%;
 
-        }*/
+        &--err{
+            outline: 1px solid  $error-color;
 
+        }
 
     }
 }

@@ -6,7 +6,7 @@ import "./PortfolioTable.scss";
 const PortfolioTable = ({portfolioData}) => {
     // console.log(portfolioData[0]);
     const portData = generatePorfCardData(portfolioData);
-    console.log(portData);
+    // console.log(portData);
     return (
         <div className="portfolioTable">
             <h2 className="portfolioTable__heading">Portfolio Summary</h2>
