@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DataList from "../DataList/DataList";
 import FormInput from "../FormInput/FormInput";
+import ConfirmModal from "../ConfirmModal/ConfirmModal";
+
 import { isInt, isValidStockDay, isIntgtZero, mapper, invertedMapper } from "../../utils/utils";
 import axios from 'axios';
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -18,6 +20,9 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
     const [formValues, setformValues] = useState({symb: symb || "", shares: shares || 0 ,
          purchaseDate: purchDateData ||  "", price: price || 0.00})
     const [isValid, setisValid] = useState({shares: true, price: true, purchaseDate:false});
+    const [showModal, setshowModal] = useState(false);
+    const [modalInfo, setmodalInfo] = useState({});
+
 
     const handleStock = ()=>{
         console.log("Stock");
@@ -25,7 +30,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
 
     const handleSubmission = ()=>{
-        console.log(isFormValid());
+        //console.log(isFormValid());
         // console.log(BASEURL);
 
         if (isFormValid()){
@@ -35,10 +40,10 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                 axios
                 .get(`${BASEURL}/api/chartdata/ondate/${symbmapped}?ondate=${formValues.purchaseDate}`)
                 .then((resp) =>{
-                    console.log(resp.data);
+                    //console.log(resp.data);
                     if (resp.data.length >0){
-                        console.log(`Received data ${resp.data}`);
-                        console.log(resp.data);
+                        //console.log(`Received data ${resp.data}`);
+                        //console.log(resp.data);
                         resp.isPutData = true;
                         
                         return {...resp.data, isPutData:true};
@@ -60,10 +65,10 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                     "purchase_price":  purchDateData[0].Close,
                     "port_id": portId
                   }
-                  console.log(dataToUpdate);
+                  //console.log(dataToUpdate);
                    axios.patch(`${BASEURL}/api/portfolio`, dataToUpdate)
                    .then((resp) =>{
-                    console.log(resp);
+                    //console.log(resp);
                     fetchData(true);
                     triggerReload(true);
 
@@ -149,9 +154,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
     }
 
-    const handleDelete = () =>{
-        console.log(`Delete called`)
-
+    const deleteConfirmed =  ()=>{
+        
         const dataToUpdate = {
             "user_id": user,
             "stock_id": invertedMapper[formValues.symb], 
@@ -160,19 +164,31 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             "purchase_price":  formValues.price,
             "port_id": portId
           }
-          //console.log(dataToUpdate);
-           axios.patch(`${BASEURL}/api/portfolio`, dataToUpdate)
-           .then((resp) =>{
-            console.log(resp);
+        axios.patch(`${BASEURL}/api/portfolio`, dataToUpdate)
+        .then((resp) =>{
+            //console.log(`Delete confirmed.`);
+            setshowModal(false);
+
             fetchData(true);
             triggerReload(true);
 
-
-           })
-           .catch((err)=>{
+            })
+        .catch((err)=>{
             console.error(err);
-           })
+        })
+        
 
+    }
+
+    const handleDelete = () =>{
+        setshowModal(true);
+        //console.log(`${formValues.purchaseDate}, ${formValues.symb}, ${formValues.shares}`);
+        const newModalInfo = {  heading: "Confirm Delete", 
+                                text: `Deleting your purchase on ${formValues.purchaseDate} of ${formValues.shares} shares of 
+                                        ${formValues.symb}`
+                            };
+        setmodalInfo(newModalInfo);
+        
     }
 
     const handleChange = (e) =>{
@@ -240,6 +256,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
     }
     return (
+        
+
         <div className={isEdit?"addPortfolioContainer--modforedit":"addPortfolioContainer"}>
             {!isEdit  && <h2 className="addPortfolioContainer__heading">Add to your portfolio</h2>}
             <DataList handleStock={handleChange} symbDef={symb}/>
@@ -273,6 +291,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                     </button>
                 </div>
             }
+        {showModal && <ConfirmModal setshowModal={setshowModal} modalInfo={modalInfo} deleteConfirmed={deleteConfirmed}/>}
+
         </div>
     );
 };
