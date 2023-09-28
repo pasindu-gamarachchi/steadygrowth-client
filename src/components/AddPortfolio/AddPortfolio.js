@@ -19,9 +19,10 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
     const [formValues, setformValues] = useState({symb: symb || "", shares: shares || 0 ,
          purchaseDate: purchDateData ||  "", price: price || 0.00})
-    const [isValid, setisValid] = useState({shares: true, price: true, purchaseDate:false});
+    const [isValid, setisValid] = useState({shares: true, price: true, purchaseDate:true});
     const [showModal, setshowModal] = useState(false);
     const [modalInfo, setmodalInfo] = useState({});
+    const [modalAction, setModalAction] = useState(null);
 
 
     const handleStock = ()=>{
@@ -69,6 +70,8 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                    axios.patch(`${BASEURL}/api/portfolio`, dataToUpdate)
                    .then((resp) =>{
                     //console.log(resp);
+                    setshowModal(false);
+
                     fetchData(true);
                     triggerReload(true);
 
@@ -89,6 +92,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
             })
             }
+            /*
             else{ /// ADD DATA CONDITION
                 const invertedSym = invertedMapper[formValues.symb];
                 axios
@@ -150,6 +154,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
 
                 })
             }
+            */
         }
 
     }
@@ -185,10 +190,26 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
         //console.log(`${formValues.purchaseDate}, ${formValues.symb}, ${formValues.shares}`);
         const newModalInfo = {  heading: "Confirm Delete", 
                                 text: `Deleting your purchase on ${formValues.purchaseDate} of ${formValues.shares} shares of 
-                                        ${formValues.symb}`
+                                        ${formValues.symb}`,
+                                action: "Delete"
                             };
         setmodalInfo(newModalInfo);
         
+    }
+
+    const handleUpdate = () => {
+
+        if (isFormValid()){
+            setshowModal(true);
+            const newModalInfo = {
+                heading : "Confirm Update",
+                text: `Updating your portfolio with the following values, stock symbol : ${formValues.symb}, 
+                         Purchase Date : ${formValues.purchaseDate}, shares : ${formValues.shares}, purchase price : ${formValues.price}`,
+                action : "Update"
+            }
+            setmodalInfo(newModalInfo);
+            setModalAction("Update");
+        }
     }
 
     const handleChange = (e) =>{
@@ -269,7 +290,7 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
             </div>
             {isEdit? 
                 <div className="btnContainer--modforedit">
-                    <button onClick={handleSubmission} className="btnContainer__edit">
+                    <button onClick={handleUpdate} className="btnContainer__edit">
                         <img src={confirmIcon} className="btnContainer__img"/>
                     </button>
                     <button className="btnContainer__edit">
@@ -291,7 +312,13 @@ const AddPortfolio = ({isEdit, symb, shares, purchDateData, price, fetchData, po
                     </button>
                 </div>
             }
-        {showModal && <ConfirmModal setshowModal={setshowModal} modalInfo={modalInfo} deleteConfirmed={deleteConfirmed}/>}
+        {showModal && <ConfirmModal 
+                        setshowModal={setshowModal}
+                        modalInfo={modalInfo}
+                        modalAction={modalAction}
+                        deleteConfirmed={deleteConfirmed}
+                        updateConfirmed={handleSubmission}
+        />}
 
         </div>
     );

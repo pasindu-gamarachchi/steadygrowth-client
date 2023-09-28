@@ -43,9 +43,9 @@ const ConfirmModal = ({modalInfo, url, deleteConfirmed, updateConfirmed, modalAc
                             </Link>
                         </div>
                         <div className="delete__button-box">
-                            <Link to={url} onClick={()=>{deleteConfirmed()}}
+                            <Link to={url} onClick={()=>{updateConfirmed()}}
                             >
-                                <span className="delete__button">Delete</span>
+                                <span className="delete__button">Confirm</span>
                             </Link>
                         </div>
                     </div>:
