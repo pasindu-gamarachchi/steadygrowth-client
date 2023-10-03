@@ -54,7 +54,7 @@
         border: 1px solid  #ccc;
         // justify-content: center;
         padding-left: 5%;
-        color: steelblue;
+        color: #05014a; // steelblue;
 
         @include tablet{
             width: 50%;
@@ -92,7 +92,9 @@
         font-size: 0.75rem;
         cursor: pointer;
         text-decoration: none;
-
+        display: flex;
+        align-items: center;
+        // @include outline-for-testing(red);
         @include tablet{
             height: 1.25rem;
             width: 50%;
