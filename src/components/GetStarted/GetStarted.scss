@@ -20,6 +20,14 @@
 
 }
 
+.link{
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+
 .buttonContainer{
     align-items: center;
     background: $interactive-color;
@@ -30,8 +38,8 @@
     max-height: 2.25rem;
     height: 2.25rem;
     min-width: 90%;
-    
-    margin-bottom: 1rem;
+    width: 90%;
+    margin-bottom: 1rem;    
     @include tablet{
         min-width: 70%;
 

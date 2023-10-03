@@ -2,8 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 
 $summary-info-background: gray;
-$summary-info-background: $col-6;
-
+$summary-info-background: $col-7;
+$summary-info-background-alt:  $col-3;
 
 .summaryCard{
     display: flex;
@@ -16,6 +16,10 @@ $summary-info-background: $col-6;
     border-radius: 1rem;
     border: 1px solid $summary-info-background;
     color: #333;
+
+    &--altbackg{
+        background-color: $summary-info-background-alt;
+    }
 
     &--col{
         background-color: #333;
@@ -42,7 +46,7 @@ $summary-info-background: $col-6;
             width: 25%;
             //outline: 1px solid blue;
             //background-color: #333;
-            color:  $column-color;
+            color:  whitesmoke; // $column-color;
             font-weight: 700;
             font-size: 0.875rem;
             text-transform: uppercase;
@@ -67,7 +71,7 @@ $summary-info-background: $col-6;
             min-width: 20%;
             //outline: 1px solid blue;
             //background-color: #333;
-            color: $column-color;
+            color: whitesmoke; // $column-color;
             font-weight: 700;
             font-size: 0.875rem;
             text-transform: uppercase;
