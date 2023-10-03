@@ -1,0 +1,129 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.delete {
+    background-color: rgb(19, 24, 44, 0.7);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  
+    @include tablet {
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 3rem;
+    }
+  
+    @include desktop {
+      padding: 3rem 19rem 3rem 19rem;
+    }
+  
+    &__section {
+      padding: 1rem;
+      height: 100vh;
+      width: 100%;
+      z-index: 1000;
+      //background-color: #fff;
+      background-color: #F4F9FC;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+  
+      @include tablet {
+        position: unset;
+        height: 16.375rem;
+        width: 100%;
+        margin-top: 7.5625rem;
+        padding: 1rem;
+  
+        //   padding: 1rem 4rem 2.5rem 4rem;
+      }
+    }
+  
+    &__text-section {
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+      color: $text-color;
+    }
+    &__close {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      height: 2.75rem;
+  
+      @include tablet {
+        height: 1.5rem;
+      }
+    }
+  
+    &__heading {
+      @include header-font;
+      margin-bottom: 1rem;
+  
+      @include tablet {
+        margin-left: 3rem;
+        margin-right: 3rem;
+      }
+    }
+    &__text {
+      @include medium-body-font;
+      font-size: 0.9375rem;
+      line-height: 1.625rem;
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.75rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+      }
+    }
+    &__ctas {
+      display: flex;
+      margin-bottom: 0.5rem;
+      gap: 1rem;
+  
+      @include tablet {
+        margin: 0rem 3rem 1.5rem 3rem;
+        justify-content: flex-end;
+      }
+    }
+    &__button-box {
+      width: 100%;
+      @include tablet {
+        width: auto;
+      }
+    }
+  
+    &__button {
+      @include medium-body-font;
+      align-items: center;
+      width: 100%;
+      padding: 0.5rem 0rem;
+      border-radius: 1.25rem;
+      display: flex;
+      justify-content: center;
+      background-color: $error-color ;
+      color: #fff;
+  
+      @include tablet {
+        width: 4.4375rem;
+        height: 2.375rem;
+        padding: 0.5rem 1rem;
+      }
+  
+      &--outline {
+        outline: 1px solid $table-header-color;
+        background-color: #fff;
+        color: $table-header-color;
+      }
+    }
+  }
