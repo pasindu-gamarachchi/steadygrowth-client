@@ -4,7 +4,8 @@
 
 .MainContent{
     min-height: calc(100vh - $footer-height);
-    margin-top: 2rem;
+    margin-top: 6rem;
+    //@include outline-for-testing(red);
 
     @include tablet{
         margin-top: 5rem;
@@ -19,7 +20,8 @@
     margin-inline: 1rem;
 
     /* Card Shadow */
-    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
+    //box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
+    background-color: transparent;
 
     display: flex;
     flex-direction: column;
@@ -34,7 +36,7 @@
         border-radius: 0.1875rem;
 
         /* Card Shadow */
-        box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
+        //box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
 
     }
 

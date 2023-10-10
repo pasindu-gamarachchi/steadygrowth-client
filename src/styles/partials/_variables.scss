@@ -1,22 +1,49 @@
 $tablet-width: 48rem;
 $desktop-width: 80rem;
 
-
+$mobile-margin:1rem;
 $tablet-margin: 1.5rem;
 $desktop-margin: 2.5rem;
 
-$background-color : #F7F8F9; 
+$background-color : #FCFCFC;// #F7F8F9; 
 $table-header-color : #5C667E; //Table column headers & placeholder text
 $text-color : #13182C;
-$interactive-color :rgb(50, 48, 47); //Interactive elements
+$interactive-color : #32302F; //Interactive elements
 $table-header-color : #5C667E; //Table column headers & placeholder text
 $outline-color : #BDC5D5; //Outlines, dividers, borders, table sorting icon
 $nav-hover-color : #232940; //Nav background,CTA button hover state background
-$ok-color : #158463;
+$ok-color :rgb(95,175,80, 0.6); //  #158463;
+//$ok-color: "5FAF50"; 
 $error-color  : #C94515;
+$loss-color:  rgb(211,56,47,0.6); // #D3382F;
+$dark-grey: #32302F;
+$column-color: #A8BAC2 ; 
+$tabs-active: rgba(70, 130, 180) ; 
+
+/*
+
+*/
+
+$chart-color-main: #5298bc;
+
+$col-1: rgb(228, 233, 211); // #E4E9D3 ;
+$col-2: #F9F2EF ;
+$col-3: #FBEEE6 ;
+$col-4: rgb(236,242,246) ; //   #ECF2F6;
+$col-5: #ECF3D5 ;
+$col-6: #F4F9FC ; 
+$col-7: #ECF2F6 ;
+
+$chart-col-1: #EE9F5A; 
+$chart-col-2: #2F7DEE;
 
 $activeColor: #ffffff;
 $unactiveColor: #eeeeee;
 $unactiveHoverColor: #dddddd;
 
 $footer-height: 2.5rem;
+
+
+
+$add-portfolio-inp-width: 40%;
+$add-portfolio-font-size: 0.85rem;

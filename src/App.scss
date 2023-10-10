@@ -1,6 +1,6 @@
-//@use "./styles/partials/variables" as *;
-//@use "./styles/partials/typography" as *;
-//@use "./styles/partials/mixins" as *;
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/typography" as *;
+@use "./styles/partials/mixins" as *;
 
 *,
 *::before,
@@ -13,7 +13,17 @@
 body {
   font-family: "Titillium Web";
   min-height: calc(100vh - 40px);
-
+  background-color: #F4F9FC;
+  background: linear-gradient(rgb(229, 241, 241) 0%, rgba(229, 241, 241, 0) 100%) 0% 0% / 100% 248px no-repeat;
+    background-repeat: no-repeat;
+  /*
+  E4E9D3
+  F9F2EF
+  FBEEE6
+  ECF2F6
+  ECF3D5
+  #F4F9FC
+  */
 
 
 }

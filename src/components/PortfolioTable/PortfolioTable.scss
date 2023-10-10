@@ -4,6 +4,10 @@
 
 .portfolioTable{
     margin-block: 1rem;
+    padding-block: 1rem;
+    //@include outline-for-testing(blue);
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
+
     &__heading{
         display: flex;
         justify-content: center;

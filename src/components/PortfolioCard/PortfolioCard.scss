@@ -4,6 +4,8 @@
 $min-width-perc : 18%;
 $tabl-min-width-perc: 18%;
 $min-height: 1.5rem;
+// $column-color: #A8BAC2 ; 
+
 
 .portSummaryCard{
     display: flex;
@@ -31,7 +33,7 @@ $min-height: 1.5rem;
             width: $min-width-perc;
             // outline: 1px solid blue;
             background-color: #333;
-            color: gold;
+            color: $column-color;
             font-weight: 700;
             font-size: 0.5rem;
             text-transform: uppercase;
@@ -45,7 +47,7 @@ $min-height: 1.5rem;
                 //gap: 0rem;
                 // outline: 1px solid blue;
                 background-color: #333;
-                color: gold;
+                color: $column-color;
                 font-weight: 700;
                 font-size: 0.8rem;
 
@@ -77,7 +79,7 @@ $min-height: 1.5rem;
         }
 
         &--loss{
-            background-color: $error-color;
+            background-color:  $loss-color; //$error-color;
             min-width: $min-width-perc;
             width: $min-width-perc;
             text-align: center;
