@@ -1,0 +1,24 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.promoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include outline-for-testing(red);
+    padding-top: 2rem;
+    padding-inline: 2rem;
+    // width: 80%;
+
+    &__img{
+        @include outline-for-testing(green);
+        object-fit: contain;
+        max-width: 100%;
+        //max-height: 100%;
+        // aspect-ratio: 4/3;
+        background-blend-mode: inherit;
+
+    }
+
+}
