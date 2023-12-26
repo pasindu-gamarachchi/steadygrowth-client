@@ -9,22 +9,22 @@ const LandingPromo = () => {
 	return (
 		<div className="promoContainer">
 			<div>
-				<h1>Visualize histortical data</h1>
+				<h1 className="promoHeader">Visualize Historical Data</h1>
 				<img className="promoContainer__img" src={chartBanner} />
 			</div>
 			<div>
-				<h1>Get Summary Statistics</h1>
+				<h1 className="promoHeader">Get Summary Statistics</h1>
 				<img className="promoContainer__img" src={statsBanner} />
 			</div>
 			<div>
-				<h1>Track your portfolio</h1>
+				<h1 className="promoHeader">Track Your Portfolio</h1>
 				<img
 					className="promoContainer__img"
 					src={portfolioChartBanner}
 				/>
 			</div>
 			<div>
-				<h1>Evaluate your portfolio</h1>
+				<h1 className="promoHeader">Evaluate Your Portfolio</h1>
 				<img
 					className="promoContainer__img"
 					src={portfolioStatsBanner}
